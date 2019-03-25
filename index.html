@@ -47,16 +47,20 @@
     <h1><b>Natural Capital Data Viz</b></h1>
     <div class="w3-section w3-bottombar w3-padding-16">
       <span class="w3-margin-right">Filter:</span> 
-      <button class="w3-button w3-black">ALL</button>
-      <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>NatCap's</button>
-      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Webmaps</button>
-      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Art</button>
+      <button class="w3-button w3-black" onclick="filterSelection('all')">ALL</button>
+      <button class="w3-button w3-white" onclick="filterSelection('natcaps')"><i class="fa fa-diamond w3-margin-right"></i>NatCap's</button>
+      <button class="w3-button w3-white w3-hide-small" onclick="filterSelection('webmaps')"><i class="fa fa-photo w3-margin-right"></i>Webmaps</button>
+      <button class="w3-button w3-white w3-hide-small" onclick="filterSelection('art')"><i class="fa fa-map-pin w3-margin-right"></i>Art</button>
     </div>
     </div>
   </header>
+
+
+
+
   
-  <!-- First Photo Grid-->
-  <div class="w3-row-padding">
+  <!-- First Inspiration Grid-->
+  <div class="w3-row-padding filterDiv natcaps webmaps">
     <div class="w3-third w3-container w3-margin-bottom">
       <a href='http://www.myanmarnaturalcapital.org/en' target='_blank'><img src="/images/myanmar.png" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
       <div class="w3-container w3-white">
@@ -88,7 +92,7 @@
   </div>
   
   <!-- Second Photo Grid-->
-  <div class="w3-row-padding w3-margin-bottom">
+  <div class="w3-row-padding w3-margin-bottom filterDiv natcaps webmaps">
     <div class="w3-third w3-container w3-margin-bottom">
       <a href='https://charlottegiseleweil.github.io/NatCapTraining/' target='_blank'><img src="images/training.png" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
       <div class="w3-container w3-white">
@@ -119,8 +123,8 @@
     </div>
 
 
-  <!-- Third Examples Row -->
-  <div class="w3-row-padding w3-margin-bottom">
+  <!-- Third Examples Row --> 
+  <div class="w3-row-padding w3-margin-bottom filterDiv natcaps webmaps invest">
     <div class="w3-third w3-container w3-margin-bottom">
       <a href='https://joannalcy.github.io/hra-app/' target='_blank'><img src="images/hra.png" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
       <div class="w3-container w3-white">
@@ -154,7 +158,7 @@
 
   <!-- Fourth Examples Row -->
   <div class="w3-row-padding">
-    <div class="w3-third w3-container w3-margin-bottom">
+    <div class="w3-third w3-container w3-margin-bottom filterDiv natcaps webmaps">
       <a href='http://msp.naturalcapitalproject.org/msp_concierge_master/' target='_blank'><img src="images/mp.png" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
       <div class="w3-container w3-white">
         <p><b>Marine Planning Concierge</b></p>
@@ -164,17 +168,17 @@
       </div>
     </div>
 
-    <div class="w3-third w3-container w3-margin-bottom">
+    <div class="w3-third w3-container w3-margin-bottom filterDiv natcaps webmaps">
       <a href='http://marineapps.naturalcapitalproject.org/bahamas/' target='_blank'><img src="images/baha.png" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
       <div class="w3-container w3-white">
         <p><b>Bahamas Hazard Viewer</b></p>
-        <p>This interactive dashboard displays InVEST Costal Vulnerability model results, in the Bahamas<a href='https://naturalcapitalproject.stanford.edu/training-program/' target-='_blank'>Learn more!</a>
+        <p>This interactive dashboard displays InVEST Costal Vulnerability model results, in the Bahamas. <a href='https://naturalcapitalproject.stanford.edu/training-program/' target-='_blank'>Learn more!</a>
         <span class="light"> By Gregg Verutes </span>
         </p>
       </div>
     </div>
 
-    <div class="w3-third w3-container">
+    <div class="w3-third w3-container filterDiv webmaps">
       <a href='https://coastalresilience.org/tools/apps/#apps_id%7Cassess-risk%7C1' target='_blank'><img src="images/tnc.png" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
       <div class="w3-container w3-white">
         <p><b>TNC's Coastal Resilience Apps</b></p>
@@ -185,7 +189,7 @@
 
     <!-- Fifth Examples Row -->
   <div class="w3-row-padding">
-    <div class="w3-third w3-container w3-margin-bottom">
+    <div class="w3-third w3-container w3-margin-bottom filterDiv art">
       <a href='http://www.awavenavr.com/' target='_blank'><img src="images/vra.jpg" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
       <div class="w3-container w3-white">
         <p><b>Virtual Reality Journey in the Amazon</b></p>
@@ -213,11 +217,12 @@
         </p>
       </div>
     </div>
+
   </div>
 
 <!-- Sixth Examples Row -->
   <div class="w3-row-padding">
-    <div class="w3-third w3-container w3-margin-bottom">
+    <div class="w3-third w3-container w3-margin-bottom filterDiv natcaps webmaps">
       <a href='https://phawthorne.github.io/mc-vis/' target='_blank'><img src="images/peter.png" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
       <div class="w3-container w3-white">
         <p><b>Trade-Offs Curves Dashboard</b></p>
@@ -227,7 +232,7 @@
       </div>
     </div>
 
-    <div class="w3-third w3-container w3-margin-bottom">
+    <div class="w3-third w3-container w3-margin-bottom filterDiv">
       <a href='http://watershedtool.org/' target='_blank'><img src="images/wstool.png" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
       <div class="w3-container w3-white">
         <p><b>Watershed Conservation Screening Tool</b></p>
@@ -236,21 +241,7 @@
       </div>
     </div>
 
-    <div class="w3-third w3-container w3-margin-bottom">
-      <a href='https://maps.coastalresilience.org/gulfmex/' target='_blank'><img src="images/coastalTNC.png" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
-      <div class="w3-container w3-white">
-        <p><b>Coastal Defense App </b></p>
-        <p>One of TNC's Coastal Resilience apps, the Coastal Defense app examines how coastal habitats such as oyster reefs, coral reefs, tidal marshes, mangroves, beach dunes, and seagrass help protect coastal areas by reducing wave energy hitting the shore. This app is being used in <a href='https://maps.coastalresilience.org/seflorida/' target='_blank'>Southeast Florida</a> and <a href='https://maps.coastalresilience.org/gulfmex/' target='_blank'>Gulf of Mexico</a>.
-        <span class="light"> By The Nature Conservancy </span>
-      </p>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Seven Examples Row -->
-  <div class="w3-row-padding">
-    <div class="w3-third w3-container w3-margin-bottom">
+    <div class="w3-third w3-container w3-margin-bottom filterDiv art webmaps">
       <a href='https://arcg.is/0XGrDO' target='_blank'><img src="images/nomadic.png" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
       <div class="w3-container w3-white">
         <p><b>Making Pastoralists Count</b></p>
@@ -260,17 +251,12 @@
       </div>
     </div>
 
-    <!--<div class="w3-third w3-container w3-margin-bottom">
-      <a href='http://watershedtool.org/' target='_blank'><img src="images/     .png" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
-      <div class="w3-container w3-white">
-        <p><b>Spatial Priotization Viewer in Python</b></p>
-        <p>.
-        <span class="light"> By Justin Johnson</span>
-      </p>
-      </div>
-    </div>-->
+  </div>
 
-    <div class="w3-third w3-container w3-margin-bottom">
+
+  <!-- Seven Examples Row -->
+<div class="w3-row-padding">
+  <div class="w3-third w3-container w3-margin-bottom">
       <a href='https://maps.coastalresilience.org/gulfmex/' target='_blank'><img src="images/coastalTNC.png" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
       <div class="w3-container w3-white">
         <p><b>Coastal Defense App </b></p>
@@ -279,6 +265,28 @@
       </p>
       </div>
     </div>
+
+    <div class="w3-third w3-container w3-margin-bottom">
+      <a href='raster_weights_dashboard.html' target='_blank'><img src="images/justin.png" alt="Image" style="width:100%" class="w3-hover-opacity"></a>
+      <div class="w3-container w3-white">
+        <p><b>Spatial Priotization Viewer in Python</b></p>
+        <p>This tools allows users to see how they could combine multiple ecosystem services into a single indicator via specifying different "weights" for each ecosystem service. It also illustrates a working example that implements how to do raster math on the client side within an html/js file. <a href='http://pebat.umn.edu' target='_blank'>More information</a>
+        <span class="light"> By Justin Johnson</span>
+      </p>
+      </div>
+    </div>
+
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="images/boo.png" alt="Image" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Your favorite visualization</b></p>
+        <p> Email us @ <a href='mailto:chweil@stanford.edu'>chweil@stanford.edu</a> to have your project featured!
+        <span class="light"> By you</span>
+        </p>
+      </div>
+    </div>
+
+
   </div>
 
   <!-- Pagination
@@ -334,6 +342,16 @@
               </h4>
           <p>Researcher Data Scientist,
           The Natural Capital Project at Stanford University</p>
+
+
+
+          <!-- Contacts: 
+            Justin
+            jj.png
+            Ask me about
+            - Bokeh (Python Interactive Viz), 
+            - Hosting viz on AWS
+            - Visualizing rasters -->
         </div>
 
 
@@ -346,18 +364,8 @@
 <!-- End page content -->
 </div>
 
-<script>
-// Script to open and close sidebar
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
-</script>
+<script src="js/main.js"></script>
+
 
 </body>
 </html>
