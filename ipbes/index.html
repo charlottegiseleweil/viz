@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>NCPs Viewer</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="viz/css/styles.css" />
+  <link href="https://goo.gl/mTc43h" rel="stylesheet">
+
+  <!-- w3 style thingz -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="viz/css/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+</head>
+
+<body>
+
+  <script src="viz/libraries/jquery.min.js"></script>
+  <script src="viz/libraries/papaparse.js"></script>
+
+  <script src="viz/libraries/d3.js"></script>
+  <script src="viz/libraries/papaparse.js"></script>
+  <script src="viz/libraries/topojson.v1.min.js"></script>
+  <script src="viz/libraries/versor.min.js"></script>
+  <script src="viz/libraries/d3-inertia.min.js"></script>
+  <script src="viz/libraries/d3-simple-slider.js"></script>
+
+  <script src="viz/libraries/d3-scale-chromatic.v1.min.js"></script>
+  <script src="viz/libraries/d3-geo-projection.v2.min.js"></script>
+  <script src="viz/libraries/d3-legend.js"></script>
+  <script src="viz/libraries/d3-tip.js"></script>
+
+  <script src="viz/libraries/noframework.waypoints.min.js"></script>
+
+
+
+  <!-- "About" overlay -->
+  <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+      <a href="#">About blah blah </a>
+    </div>
+  </div>
+
+
+  <!-- About Pop-up Window -->
+  <div id="about" style='display:none' onClick="hideNow(event)" class="pop-up-big">
+    <div w3-include-html="about.html"></div>
+    </center>
+  </div>
+  <!-- End of About Pop-up Window -->
+
+
+  <!-- Info Button Pop-up Window -->
+  <div id="ac-wrapper" style='display:none' onClick="hideNow(event)">
+    <div id="popup" class="grad1">
+      <center>
+        <h2 class="h2_popup">How to read these maps?</h2>
+        <p>
+          <ul class="p_popup">
+            <ul>
+              <li>These maps highlight the areas where Nature's Contribution to People (NCP) is key: where both many people are exposed to high biophysical pressure (e.g Pollution load), and nature’s contributions are highest. In these regions (colored in
+                black), ecosystem protection will likely provide the greatest benefits. <br> <br> <br> </li>
+              <li>Areas of high human need coinciding with lower contributions of nature indicate “deficits” of benefits where they are most needed highlighting potential opportunities for ecosystem restoration to boost NCP – or areas where other investments
+                beyond nature may be necessary to ensure well-being (colored in dark pink).<br> <br> <br> </li>
+              <li>Finally, areas where Nature's Contribution to People is relatively high, despite a relatively low "need" (either because there is little biophysical need, such as little pollution, or because population density is low) are colored in green.
+                <br> <br> </li>
+            </ul>
+          </ul>
+        </p>
+        <input type="submit" name="submit" value="Got it !" onClick="PopUp('hide')" />
+      </center>
+    </div>
+  </div>
+  <!-- End of popup window -->
+
+
+  <div class="box-container" id='3rd_box'>
+    <div class="menu-box-1-global">
+      <!-- <div class="nav-global">
+  <ul>
+    <li><a href="#" class="nav-link" onclick="activate_nature_button()"> WHERE NATURE HELPS US MOST TODAY?</a></li>
+    <li><a href="#" class="nav-link" onclick="activate_risk_button()">WHERE ARE PEOPLE AT RISK IN THE FUTURE?</a></li>
+    <li><a href="#" class="nav-link" onclick="click_about()">ABOUT</a></li>
+    <li><a href="#" class="nav-link" onclick="showNow()">&#9432;</a></li>
+  </ul>
+</div> -->
+
+      <!-- Menu Navbar -->
+      <div class="w3-top">
+        <div class="nav-global w3-bar w3-theme-d2 w3-left-align">
+          <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-grey nav-link" onclick="activate_nature_button()"><i class="fa fa-home w3-margin-right"></i> WHERE DOES NATURE HELP US MOST TODAY?</a>
+          <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-grey nav-link" onclick="activate_risk_button()"><i class="fa fa-home w3-margin-right"></i> IN WHICH COUNTRIES ARE PEOPLE MOST AT RISK?</a>
+          <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-grey" title="info-button" onclick="showNow()">&#9432;</a>
+          <a id="About" onclick="showAbout()" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-grey"> About</a>
+        </div>
+      </div>
+      <!-- End Menu Navbar -->
+
+    </div>
+    <div class="box box-1" style="visibility: collapse">
+      <button class="info-button" style="display:none;" name="answer" value="info" onclick="showNow()"><i class="fa fa-info-circle fa-2x"></i></button>
+      <div class="switch-proj" id="projectionChangeChecked" style="display:none;">
+        <button class="globe-button" onclick="projection3D()" value="true" id="checked3D"><i class="fa fa-globe fa-2x"></i></button>
+        <button class="map-button" onclick="projection2D()" value="false" id="checked2D"><i class="fa fa-map fa-2x"></i></button>
+      </div>
+
+    </div>
+
+    <div class="box box-2" style="display: none;">
+      <div id="container">
+        <!-- <a href="#" class="future-button" onclick="future_button()">Future maps</a>
+        <a href="#" class="impact-button" onclick="impact_button()">Impact distribution</a>
+        <a href="#" class="historical-button" onclick="projection3D()">Historical</a>
+        <a href="#" class="modeling-button" onclick="modeling_button()">Pollination modeling method</a> -->
+      </div>
+      <p id="map-name-1">Average Micronutrient Pollination Dependance</p>
+      <div class="map1"></div>
+      <hr class="map-diff-line">
+      <div class="map2">
+        <div class="overlay">
+
+          <div id="options-radios">
+            <label>
+              <input type="radio" class="option-input radio" name="example" autocomplete="off" onclick="runSegmentedSSPs('SSP1')" checked />
+              Sustainability
+            </label>
+            <label>
+              <input type="radio" class="option-input radio" name="example" autocomplete="off" onclick="runSegmentedSSPs('SSP3')" />
+              Rivalry
+            </label>
+            <label>
+              <input type="radio" class="option-input radio" name="example" autocomplete="off" onclick="runSegmentedSSPs('SSP5')" />
+              Fossil Fuels
+            </label>
+          </div>
+
+        </div>
+      </div>
+      <div class="map-slider"></div>
+    </div>
+
+    <div class="box box-3-global" style="display:flex;">
+      <h1 id="box-3-global-header">
+      <div> Ecosystem Services </div>
+      <div class="nav-bar-white"> </div>
+    </h1>
+
+      <h1 id="box-3-global-header">
+      <div class="wrapper">
+        <input id="pollination-box" name="button-global" type="radio" onclick="load_pollination_data()" value="pollination" autocomplete="off" checked>
+        <label for="pollination-box">Pollination <span1 class="glyphicon glyphicon-grain"> </span1> </label>
+      </div>
+    <h2 id="box-3-global-text">
+      Up to two-thirds of all crops require some degree of animal pollination to reach their maximum yields, and natural habitat around farmlands can support healthy populations of wild pollinators by providing them with foraging and nesting resources. <br> <br>
+   <p id="box-3-global-text-link"> &#8594; <a onClick="load_pollination();">To Pollination Modeling</a></p>
+
+
+  </h2>
+  <div class="nav-bar-white"> </div>
+  </h1>
+
+      <h1 id="box-3-global-header">
+    <div class="wrapper">
+    <input id="water-quality-box" name="button-global" type="radio" onclick="load_waterquality_data()" value="waterquality" autocomplete="off" >
+    <label for="water-quality-box">Water Quality Regulation <i class="fa fa-tint" viewBox = "0 0 15 15"></i> </label>
+  </div>
+  <h2 id="box-3-global-text">
+    Fertilizers like nitrogen are a major source pollution to freshwater systems and drinking water. However, some of it may be retained by healthy ecosystems, and this nitrogen retention regulating drinking water quality is one of nature’s contributions to people. <br> <br>
+    <p id="box-3-global-text-link"> &#8594; <a onClick="location.href='viz/WaterQuality.html';return false;">To Water Quality Regulation Modeling</a></p>
+</h2>
+  <div class="nav-bar-white"> </div>
+</h1>
+
+      <h1 id="box-3-global-header">
+  <div class="wrapper">
+  <input id="coastal-risk-box" name="button-global" type="radio" onclick="load_coastalrisk_data()" value="coastal" autocomplete="off">
+  <label for="coastal-risk-box">Coastal Risk Mitigation <i class="fas fa-water"></i></label>
+</div>
+<h2 id="box-3-global-text">
+  Coastal habitats such as coral reefs, mangroves, salt marsh, or sea grass, attenuate waves and protect the shorelines from the impacts of storms, such as floods and erosion. <br> <br>
+  <p id="box-3-global-text-link"> &#8594; <a onClick="location.href='viz_risk/coastal.html';return false;">To Coastal Risk Mitigation Modeling</a></p>
+</h2>
+</h1>
+    </div>
+
+    <div class="box box-2-global" style="display:flex">
+
+      <div style="top:-1px; display: flex; justify-content: center; z-index:1000; background:#696969 radial-gradient(circle at 50% center, #494949 46%, black 61%,black 91%) repeat scroll 0% 0%;">
+        <h1 class="map-title"> Nature's Contributions to People </h1>
+      </div>
+      <div class="map-global">
+        <div style="position: fixed; width:20%; height: 11%; top: 79vh; left: 26vw; right: 0; bottom: 0; z-index: 999999">
+          <p class="title2DLegend"> Pollination Key Areas <a onclick="showNow()" style="cursor:pointer"> &#9432; <a/></p>
+        <img src="viz/images/legend2d.png" class="img-legend"> </img>
+        <p class="label2DLegendX">Nature's Contributions &#8594; </p>
+        <p class="label2DLegendY">Demand &#8594;</p>
+      </div>
+    </div>
+
+    </div>
+
+
+    <div class="box box-3" style="display:none;">
+      <h1 id="box-3-header">
+      <div> Pollination Contribution to Nutrition (Historical) in 1945 </div>
+      <div class="nav-bar"> </div>
+    </h1>
+      <h1 id="box-3-header-2">
+      <div> World </div>
+
+      <div class="nav-bar"> </div>
+    </h1>
+      <div class="switch_3_ways" style="display:none;">
+        <div id="ssp1" class="switch ssp1" onclick="change_period('ssp1')">SSP1</div>
+        <div id="ssp3" class="switch ssp3" onclick="change_period('ssp3')">SSP3</div>
+        <div id="ssp5" class="switch ssp5" onclick="change_period('ssp5')">SSP5</div>
+        <div id="selector" class="selector"></div>
+      </div>
+      <div class="nav-bar-hidden" style="display:none;"> </div>
+      <div class="box box-small">
+        <b> Pollination Contribution vs Unmet Need (in %) over the years </b>
+        <div class="graph"> </div>
+      </div>
+      <div class="box box-small2">
+        <div class="box_contribution">
+          <h4 class="small-title"> What is the percentage of pollination contribution to Food Energy in 1945? </h4>
+          <div class="docsChart"> </div>
+        </div>
+        <div class="ver-bar"> </div>
+        <div class="box_unmet">
+          <h4 class="title-unmet"> What is the percentage of pollination-dependent production loss? </h4>
+          <div class="docsChart2"> </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box box-3" style="display:none;">
+      <h1 id="box-3-header">
+        <nav id="navigation" class="site-navigation" role="navigation">
+ <ul class="menu">
+   <li class="menu-item"><a href="#">Choose metric to visualize</a>
+            <ul class="dropdown">
+              <li class="menu-item sub-menu" onclick="updateData('Population')"><a href="#">Pollination-Dependent Population</a></li>
+              <li class="menu-item sub-menu"><a href="#">Crop Population Dependence</a></li>
+              <li class="menu-item sub-menu" onclick="updateData('NCP')"><a href="#">Percent Pollination Need Met</a></li>
+              <li class="menu-item sub-menu"><a href="#">Lost Crop Production</a></li>
+            </ul>
+            </li>
+            </ul>
+            </nav>
+            </h1>
+            <h2 id="story"> Pollinators need good foraging resources, places that are rich in
+      pollen and nectar. They need to nest and to eat in a natural,
+      non-toxic environment.  </h2>
+            <img src="viz/images/bee.jpg" class="img-story"> </img>
+            <h2 id="story"> However, the absence of an appropriate habitat
+    for bees could lead to a continuous decline in pollination, affecting millions of people. </h2>
+            <h2 id="bar_title"> People in millions impacted in 2050 </h2>
+            <div class="graph2d"> </div>
+            <h3 class="labelGraph"> Regions </h3>
+            <h3 class="labelGraphY"> People impacted (Logscale) </h3>
+            <h1 id="box-3-header">
+    </h1>
+        </div>
+
+        <!-- Add buttons for folate, vitamin, energy  -->
+        <!-- <div class="parent-button-div" style="display:none;">
+      <div class="folate-button">
+        <! Making the div as a function -->
+        <!-- <a class="data-link" href="javascript:void(0)" onclick="updateData('Folate')"><h1 class="button-title">Folate</h1></a>
+      </div>
+      <div class="vitamin-button">
+        <a class="data-link" href='javascript:void(0)' onclick="updateData('Vitamin')"><h1 class="button-title">Vitamin</h1></a>
+      </div>
+      <div class="energy-button">
+        <a class="data-link" href='javascript:void(0)' onclick="updateData('Energy')"><h1 class="button-title">Energy</h1></a>
+      </div>
+
+    </div> -->
+        <script src="viz/js/statFunctions.js"></script>
+        <script src="viz/js/lineGraph.js"></script>
+        <script src="viz/js/barGraph.js"></script>
+        <script src="viz/js/popup.js"></script>
+        <script src="viz/js/zoom.js"></script>
+        <script src="viz/js/projection.js"></script>
+        <script src="viz/js/projection_3d.js"></script>
+        <script src="viz/js/projection_2d.js"></script>
+        <script src="viz/js/legend.js"></script>
+        <script src="viz/js/arcs.js"></script>
+        <script src="viz/js/storytelling_helper.js"></script>
+        <script src="viz/js/projection_global.js"></script>
+        <script src="viz/js/slider.js"></script>
+</body>
+
+</html>
