@@ -1,52 +1,53 @@
-// Open and close sidebar
-  function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-      document.getElementById("myOverlay").style.display = "block";
-  }
-   
-  function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-      document.getElementById("myOverlay").style.display = "none";
-  }
+var btn = document.createElement("BUTTON");   // Create a <button> element
+btn.innerHTML = "CLICK ME";                   // Insert text
+document.body.appendChild(btn);               // Append <button> to <body>
+
+var node = document.getElementById('theDiv');
+
+var div = document.createElement('div');
+div.setAttribute('class', 'w3-third w3-container w3-margin-bottom filterDiv art webmaps');
+
+var link = document.createElement('a');
+link.setAttribute('href', 'https://arcg.is/0XGrDO');
+link.setAttribute('target', '_blank');
+
+
+var img = document.createElement('img');
+img.setAttribute('src', 'images/nomadic.png');
+img.setAttribute('alt', 'image');
+img.setAttribute('style', 'width:100%');
+img.setAttribute('class', 'w3-hover-opacity');
+
+link.appendChild(img)
+
+var text = document.createElement('div');
 
 
 
-// Filter elements (Inspiration section)
-  filterSelection("all")
-  function filterSelection(c) {
-    console.log('filterSelection called for: ',c);
-    var x, i;
-    x = document.getElementsByClassName("filterDiv");
-    if (c == "all") c = "";
-    // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-    for (i = 0; i < x.length; i++) {
-      console.log(x[i])
-      w3RemoveClass(x[i], "show");
-      if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-    }
-  }
+  /*<div class="w3-container w3-white">
+        <p><b>Making Pastoralists Count</b></p>
+        <p>This beautiful ArcGIS-based storymap presents Geospatial methods for the health surveillance of nomadic populations, with a very rich multi-media approach.
+        <span class="light"> By Stace Maples & Hannah Binzen Wild</span>
+        </p>
+      </div>)*/
 
-  // Show filtered elements
-  function w3AddClass(element, name) {
-    var i, arr1, arr2;
-    arr1 = element.className.split(" ");
-    arr2 = name.split(" ");
-    for (i = 0; i < arr2.length; i++) {
-      if (arr1.indexOf(arr2[i]) == -1) {
-        element.className += " " + arr2[i];
-      }
-    }
-  }
+div.appendChild(link)
+div.appendChild(text)
+node.appendChild(div)
+/*var newNode = document.createElement('p');
+newNode.appendChild(document.createTextNode('some dynamic html'));
+node.appendChild(newNode);
+*/
 
-  // Hide elements that are not selected
-  function w3RemoveClass(element, name) {
-    var i, arr1, arr2;
-    arr1 = element.className.split(" ");
-    arr2 = name.split(" ");
-    for (i = 0; i < arr2.length; i++) {
-      while (arr1.indexOf(arr2[i]) > -1) {
-        arr1.splice(arr1.indexOf(arr2[i]), 1); 
-      }
-    }
-    element.className = arr1.join(" ");
-  }
+/*<div class="w3-third w3-container w3-margin-bottom filterDiv art webmaps">
+      <a href='https://arcg.is/0XGrDO' target='_blank'>
+      <img src="images/nomadic.png"
+      alt="Image" style="width:100%" class="w3-hover-opacity">
+      </a>
+      <div class="w3-container w3-white">
+        <p><b>Making Pastoralists Count</b></p>
+        <p>This beautiful ArcGIS-based storymap presents Geospatial methods for the health surveillance of nomadic populations, with a very rich multi-media approach.
+        <span class="light"> By Stace Maples & Hannah Binzen Wild</span>
+        </p>
+      </div>
+</div>*/
