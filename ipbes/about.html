@@ -8,7 +8,7 @@
 	<!-- Material Design Icons -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<link rel="stylesheet" type="text/css" href="viz/css/styles.css">
+	
 
 
 	<!-- Boostrap Icons -->
@@ -18,20 +18,27 @@
 
 	<!-- w3 style thingz -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="viz/css/w3.css">
+	<link rel="stylesheet" type="text/css" href="css/w3.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+	<link rel="stylesheet" type="text/css" href="css/commonStyle.css" />
+	<link rel="stylesheet" type="text/css" href="css/menu.css" />
+	<link rel="stylesheet" type="text/css" href="css/about.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	
 </head>
 
 
 
 <body class='dark'>
-
+<!-- Menu Navbar -->
+<div id="main_menu"></div>
 
 	<div class="w3-row-padding w3-padding-64 w3-theme-l1">
 		<center>
 			<h1 class="darkgrey">About <i>Nature's Contributions to People Viewer</i></h1><a target="_blank" href="https://github.com/charlottegiseleweil/natureforpeople/issues">Application under development. Please report bugs here</a></center>
 
-		<p><input type="submit" name="submit" value="&times;" onClick="aboutHideShow('hide')" class="close-btn" /></p>
+		
 
 		<!-- Logos -->
 		<!--
@@ -65,7 +72,7 @@
 				<p>Protection from the impacts of <strong>Coastal Storms</strong> such as erosion and flooding</p>
 			</div>
 			<div class="w3-third">
-				<i class="fa fa-pagelines w3-margin-bottom w3-jumbo"></i>
+				<i class="glyphicon glyphicon-grain w3-margin-bottom w3-jumbo"></i>
 				<p class="w3-large darkgrey">Pollination</p>
 				<p>Wilds pollinators contribution to human nutrition through crops pollination</p>
 			</div>
@@ -103,7 +110,7 @@
 			</div>
 
 			<div class="w3-half w3-center">
-				<img src="viz/images/methods/ssps.png" alt="SSPs" style="width:60%; padding: 10px; margin:40px; border: 10px solid black;">
+				<img src="static/images/methods/ssps.png" alt="SSPs" style="width:60%; padding: 10px; margin:40px; border: 10px solid black;">
 			</div>
 		</div>
 
@@ -123,7 +130,7 @@
 		<div class="w3-third">
 			<h2 id="appstructure">App Structure</h2>
 			<p><a href="index.html"><strong style="color:grey;">index.html</strong></a> offers on overview of the areas where Nature's Contribution to People (NCP) is key, for the 3 types of NCP studied: Pollination, Coastal Protection and Water Quality.</p>
-			<p>The 3 subpages, <a href="viz/pollination.html"><strong style="color:grey;"> pollination.html</strong></a>, <a href="viz/waterquality.html"><strong style="color:grey;">waterquality.html</strong></a> and <a href="viz/coastal.html"><strong style="color:grey;">coastal.html</strong></a>				respectively dive in each NCP, with detailed results in terms of humanity's needs and nature's contributions, as well as methodology.</p>
+			<p>The 3 subpages, <a href="poll.html"><strong style="color:grey;"> pollination.html</strong></a>, <a href="wq.html"><strong style="color:grey;">waterquality.html</strong></a> and <a href="coastal.html"><strong style="color:grey;">coastal.html</strong></a>				respectively dive in each NCP, with detailed results in terms of humanity's needs and nature's contributions, as well as methodology.</p>
 		</div>
 
 		<div class="w3-third">
@@ -150,7 +157,7 @@
 		<div class="w3-container w3-center w3-text-light-grey" style="padding-left: 5vw; padding-top: 1vh;">
 
 			<div class="w3-third">
-				<img src="viz/images/peeps/cw.jpg" alt="Pic" style="width:45%" class="w3-circle w3-hover-opacity">
+				<img src="static/images/peeps/cw.jpg" alt="Pic" style="width:45%" class="w3-circle w3-hover-opacity">
 				<h3>Charlotte G. Weil</h3>
 				<div class="center w3-text-grey"><i>Visualization lead</i></div>
 				<h3 class="icon-row w3-center">
@@ -164,22 +171,21 @@
 			</div>
 
 			<div class="w3-third">
-				<img src="viz/images/peeps/aa.jpg" alt="Pic" style="width:45%; " class="w3-circle w3-hover-opacity">
-				<h3>Ahmed Ahres</h3>
+				<img src="static/images/peeps/af.jpg" alt="Pic" style="width:45%" class="w3-circle w3-hover-opacity">
+				<h3>Anna Fredriksson Häägg</h3>
 				<div class="center w3-text-grey">
-					<i>Developer & Responsiveness Master</i></div>
+					<i>Developer & Design Goddess</i></div>
 				<h3 class="icon-row center">
-		          <a class="inline-icon" href="mailto:ahmed.ahres@epfl.ch">
-		            <i class="zmdi zmdi-email"></i></a>
-		          <a class="inline-icon" href="https://github.com/AhmedAhres" target="_blank">
-		            <i class="zmdi zmdi-github"></i></a>
-		          <a class="inline-icon" href="https://www.linkedin.com/in/AhmedAhres" target="_blank"><i class="zmdi zmdi-linkedin"></i></a>
-		        </h3>
+					<a class="inline-icon" href="mailto:haagg.anna@gmail.com">
+					<i class="zmdi zmdi-email"></i></a>
+					<a class="inline-icon" href="https://github.com/annfr542" target="_blank">
+					<i class="zmdi zmdi-github"></i></a>
+					<a class="inline-icon" href="https://www.linkedin.com/in/anna-fredriksson-h%C3%A4%C3%A4gg-74998a183/" target="_blank"><i class="zmdi zmdi-linkedin"></i></a>
+				</h3>
 			</div>
 
-
 			<div class="w3-third">
-				<img src="viz/images/peeps/hh.jpg" alt="Pic" style="width:45%" class="w3-circle w3-hover-opacity">
+				<img src="static/images/peeps/hh.jpg" alt="Pic" style="width:45%" class="w3-circle w3-hover-opacity">
 				<h3>Harshdeep</h3>
 				<div class="center w3-text-grey">
 					<i>Developer & Map Magician</i></div>
@@ -195,10 +201,22 @@
 		</div>
 
 		<div class="w3-container w3-center w3-text-light-grey" style="padding-left: 5vw; padding-top: 1vh;">
-
+			<div class="w3-third">
+				<img src="static/images/peeps/aa.jpg" alt="Pic" style="width:45%; " class="w3-circle w3-hover-opacity">
+				<h3>Ahmed Ahres</h3>
+				<div class="center w3-text-grey">
+					<i>Developer & Responsiveness Master</i></div>
+				<h3 class="icon-row center">
+					<a class="inline-icon" href="mailto:ahmed.ahres@epfl.ch">
+					<i class="zmdi zmdi-email"></i></a>
+					<a class="inline-icon" href="https://github.com/AhmedAhres" target="_blank">
+					<i class="zmdi zmdi-github"></i></a>
+					<a class="inline-icon" href="https://www.linkedin.com/in/AhmedAhres" target="_blank"><i class="zmdi zmdi-linkedin"></i></a>
+				</h3>
+			</div>
 
 			<div class="w3-third">
-				<img src="viz/images/peeps/sb.jpg" alt="Pic" style="width:45%" class="w3-circle w3-hover-opacity">
+				<img src="static/images/peeps/sb.jpg" alt="Pic" style="width:45%" class="w3-circle w3-hover-opacity">
 				<h3>Sami Ben Hassen</h3>
 				<div class="center w3-text-grey">
 					<i>Developer & Data Angel</i></div>
@@ -211,21 +229,7 @@
 			</div>
 
 			<div class="w3-third">
-				<img src="viz/images/peeps/af.jpg" alt="Pic" style="width:45%" class="w3-circle w3-hover-opacity">
-				<h3>Anna Fredriksson Häägg</h3>
-				<div class="center w3-text-grey">
-					<i>Developer & Design Goddess</i></div>
-				<h3 class="icon-row center">
-		          <a class="inline-icon" href="mailto:anna.fredrikssonhaagg@epfl.ch">
-		            <i class="zmdi zmdi-email"></i></a>
-		          <a class="inline-icon" href="https://github.com/" target="_blank">
-		            <i class="zmdi zmdi-github"></i></a>
-		          <a class="inline-icon" href="https://www.linkedin.com/in/" target="_blank"><i class="zmdi zmdi-linkedin"></i></a>
-		        </h3>
-			</div>
-
-			<div class="w3-third">
-				<img src="viz/images/peeps/dm.jpg" alt="Pic" style="width:45%" class="w3-circle w3-hover-opacity">
+				<img src="static/images/peeps/dm.jpg" alt="Pic" style="width:45%" class="w3-circle w3-hover-opacity">
 				<h3>David Malmström</h3>
 				<div class="center w3-text-grey">
 					<i>Developer & Heatmap King</i></div>
@@ -242,20 +246,17 @@
 
 
 
-
-
-
 		<h2>Science contributors</h2>
 		<p>Correspondence to <a href="bchaplin@stanford.edu">bchaplin@stanford.edu</a></p>
 
 
 		<div class="w3-quarter w3-center">
-			<img src="viz/images/peeps/bc.jpg" alt="Pic" style="width:55%" class="w3-circle w3-hover-opacity">
+			<img src="static/images/peeps/bc.jpg" alt="Pic" style="width:55%" class="w3-circle w3-hover-opacity">
 			<h3>Rebecca Chaplin-Kramer</h3>
 		</div>
 
 		<div class="w3-quarter w3-center">
-			<img src="viz/images/peeps/rs.jpg" alt="Pic" style="width:55%" class="w3-circle w3-hover-opacity">
+			<img src="static/images/peeps/rs.jpg" alt="Pic" style="width:55%" class="w3-circle w3-hover-opacity">
 			<h3>Richard P. Sharp</h3>
 		</div>
 
@@ -266,17 +267,29 @@
 	</div>
 	<div class="w3-row-padding w3-theme-l1 w3-padding-32" id="contributors">
 
-		<center>
-			<p><input type="submit" name="submit" value="Close" onClick="aboutHideShow('hide')" style="color: black;" /></p>
-		</center>
-
 	</div>
 	<!--</div> close Contributors -->
 	</div>
 	<!--close theme div -->
 
 
+	<script src="js/navigation.js"></script>
+	<script>
+		
+		whenDocumentLoaded(() => {
+			// Initialize dashboard
+			addMenu(4);
+		});
 
+		function whenDocumentLoaded(action) {
+			if (document.readyState === "loading") {
+			document.addEventListener("DOMContentLoaded", action);
+			} else {
+			// `DOMContentLoaded` already fired
+			action();
+			}
+		}
+	</script>
 </body>
 
 </html>

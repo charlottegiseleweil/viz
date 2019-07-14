@@ -26,10 +26,11 @@ All data displayed is publicly available [here](http://ipbes-natcap-ecoshard-dat
 ### Visualization
 
 * Charlotte Gisèle Weil | [chweil@stanford.edu](mailto:chweil@stanford.edu)
-*  Ahmed Ahres | [ahmed.ahres@epfl.ch](mailto:ahmed.ahres@epfl.ch)
+* Anna Fredriksson Häägg | <anna.fredrikssonhaagg@epfl.ch>
+
+* Ahmed Ahres | [ahmed.ahres@epfl.ch](mailto:ahmed.ahres@epfl.ch)
 * Harshdeep Singh | [harshdeep.harshdeep@epfl.ch](mailto:harshdeep.harshdeep@epfl.ch)
 * Sami Ben Hassen  | [sami.benhassen@epfl.ch](sami.benhassen@epfl.ch)
-* Anna Fredriksson Häägg | <anna.fredrikssonhaagg@epfl.ch>
 * David Malmström |<david.malmstrom@epfl.ch>
 
 Correspondence to: Charlotte Gisèle Weil | [chweil@stanford.edu](mailto:chweil@stanford.edu)
