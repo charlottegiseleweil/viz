@@ -45,6 +45,7 @@
     stroke-linejoin: round;
   }
   
+  
   .plot-point:hover {
     fill: orangered;
   }

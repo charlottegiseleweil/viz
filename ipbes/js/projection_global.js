@@ -1,19 +1,10 @@
 let dataset_global = 'Data/data_pol_2d.csv';
-let risk_button = document.getElementsByClassName("risk-button")[0];
-let nature_button = document.getElementsByClassName("nature-help-button")[0];
 let legendTitle = document.getElementsByClassName("title2DLegend")[0];
 let gradient_blue = 'radial-gradient( circle at 37%, rgb(105, 190, 255) 29%, rgb(236, 246, 255) 36%, rgb(228, 255, 255) 42%, rgb(215, 254, 255) 49%, rgb(204, 245, 255) 56%, rgb(191, 234, 255) 63%, rgb(147, 193, 227) 70%, rgb(147, 193, 227) 77%, rgb(147, 193, 227) 84%, rgb(81, 119, 164) 91%)';
 let counter = 0;
 let unit = "People Fed Equivalents";
 var zoom_2D_global = get_global_zoom();
 let region_text_global = "Pollination";
-
-
-
-// Function to load the pollination visualization
-function load_pollination() {
-  location.href = 'viz/Pollination.html';
-}
 
 
 let width_global = $(".box.box-2-global").width(),
@@ -116,6 +107,7 @@ function ready_global(g, path) {
       .attr("class", "mesh")
       .attr("d", path);
   });
+  console.log("hej");
 }
 
 function load_2d_global(dataset) {
@@ -131,11 +123,17 @@ function load_2d_global(dataset) {
 let data_2D_global;
 let promise_global = new Promise(function(resolve, reject) {
   ready_global(g_global, path_global);
-  setTimeout(() => resolve(1), 10);
+  setTimeout(() => resolve(1), 400);
 });
 promise_global.then(function(result) {
-  parseDataGlobal(dataset_global, draw_points);
+   parseDataGlobal(dataset_global, draw_points);
 });
+
+
+
+
+
+
 
 // Adding tip for hover
 let tip_global = d3.tip()
@@ -251,17 +249,3 @@ function parseDataGlobal(url, callBack) {
     }
   });
 }
-
-
-function activate_nature_button() {
- 
-  //Load our HTML file
-}
-
-function activate_risk_button() {
-  //Load HTML file of the other group
-  location.href = 'viz_risk/risk_index.html';
-}
-
-
-activate_nature_button();

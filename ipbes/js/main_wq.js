@@ -1,8 +1,8 @@
 let info_measurements = {
     UN: "A deficit in water quality regulation can be measured by nitrogen export, the amount not retained by vegetation that therefore enters waterways and drinking water supplies as pollution.",
     pop: "We use rural populations (within 100 km watersheds) as the population exposed because they are presumably less likely to have water treatment options. ",
-    NC: "Nature’s contribution to meeting potential human need is the proportion of total nitrogen pollutant load retained by ecosystems, the pollution avoided.",
-    PN: "The human pressure that creates a potential need for it in a given region or watershed is the total amount of pollutant (i.e. nitrogen load) requiring retention by vegetation in that area.",
+    NC: "Nature’s contribution to Water Quality is the proportion of total nitrogen pollutant load retained by ecosystems, the pollution avoided.",
+    PN: "The human pressure that creates a potential need for it in a given region or watershed is the total amount of pollutant (i.e. nitrogen load) requiring retention by vegetation in that area. -> The maximum potential benefit, which in this case is mitigating a potential harm, is based on the amount of pollution run-off (i.e. nitrogen load) requiring retention by vegetation in that area.",
 };
 
 let ipbes_cp_wms_url = 'http://viewer.ecoshard.org:8080/geoserver/ipbes/wms';

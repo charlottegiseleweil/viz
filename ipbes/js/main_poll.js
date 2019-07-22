@@ -2,9 +2,9 @@ let info_measurements = {
     UN: "A deficit in pollination can be measured as the amount of crop losses due to insufficiently pollinated crops for pollination.",
     pop: "We consider “local” beneficiaries as populations whose dietary requirements exceed pollinator-independent production within 100 km.",
     NC: "Nature’s contribution to pollination is represented by the proportion of total potential pollination- dependent crop output that is produced.",
-    PN: "The potential human need for benefits of nature is manifested by the total agricultural crop output that is dependent to some degree on insect pollination.",
+    PN: "The potential human need for benefits of nature is manifested by the total agricultural crop output that is dependent to some degree on insect pollination.  -> The maximum potential benefit is manifested by the total agricultural crop production that is dependent to some degree on insect pollination.",
 };
-
+ 
 
 let ipbes_cp_wms_url = 'http://viewer.ecoshard.org:8080/geoserver/ipbes/wms';
 
@@ -68,7 +68,7 @@ let tileLayers = {
 }
 
 let legend_title_2015 = {
-    UN: "Lost Crop Production <br> (in people fed)",
+    UN: "Lost Crop Production <br> (in people fed/900m2)",
     pop: "Pollination Dependant <br> Population",
     NC: "Pollination Need Met <br> (%)",
     PN: "Pollination-Dependant <br> Crop Production <br> (in people fed)",
