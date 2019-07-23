@@ -95,8 +95,8 @@
 #label2DLegendY{
     transform: rotate(-90deg);
     position: absolute;
-    bottom: 8vh;
-    left: 1vh;
+    bottom: 11vh;
+    left: -2vh;
     margin: 0;
     padding: 0;
 }
