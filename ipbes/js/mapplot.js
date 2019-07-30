@@ -119,16 +119,28 @@ class MapPlot {
         .enter().append("path")
         .attr("class", "globe")
         .attr("fill", "grey")
-        //.style("stroke", "lightgrey")
-        //.style("stroke-width", "2")
         .attr("d", this.path)
         .on("mouseover", function(d) {
-          that.countryTooltip.text(d.name)
+          let info = that.getShortInfo(d);
+          if(info){
+            that.countryTooltip.html(d.name + 
+              "<br><p class='tooltipInfo'>Natures Contribution: " + (100 * info.nc).toFixed(0) + "%" +
+              "<br>People Exposed: " + round(info.pop) +
+              "<br> Potential Benefit: " + round(info.potentialBenefit) + "</p>")
+              .style("left", (d3.event.pageX + 7) + "px")
+              .style("top", (d3.event.pageY - 15) + "px")
+              .style("display", "block")
+              .style("opacity", 1);
+            d3.select(this).classed("selected", true)
+          }
+          else{
+            that.countryTooltip.html(d.name )                          
             .style("left", (d3.event.pageX + 7) + "px")
             .style("top", (d3.event.pageY - 15) + "px")
             .style("display", "block")
             .style("opacity", 1);
           d3.select(this).classed("selected", true)
+          }
         })
         .on("mouseout", function(d) {
           that.countryTooltip.style("opacity", 0)
@@ -412,10 +424,14 @@ class MapPlot {
 
   focusedData() {
     // Get data for just the country that is focused (all data available)
-    return this.currentCountryMapping[`${this.focusedCountry}`].datapoints.reduce((acc, cur) => {
-      acc.push(this.currentData[cur]);
-      return acc;
-    }, [])
+    if(this.currentCountryMapping[`${this.focusedCountry}`]){
+      return this.currentCountryMapping[`${this.focusedCountry}`].datapoints.reduce((acc, cur) => {
+        acc.push(this.currentData[cur]);
+        return acc;
+      }, [])
+    }
+    return [];
+    
   }
 
   cvHighResFocusedData() {
@@ -467,13 +483,39 @@ class MapPlot {
     }
   }
 
+
+  getShortInfo(d){
+    const reducer = (accumulator, currentValue) => parseFloat(accumulator) + parseFloat(currentValue);
+    this.focusedCountry = d.name;
+    let countryData = this.focusedData();
+    if(countryData != 0){
+      let scenario = this.currentScenario
+      let nc = 0;
+      let potentialBenefit = 0;
+
+      if(this.currentDatasetName == "cv"){
+        nc = this.cvHighResCountryMapping[d.name].averages[`NC_${scenario}`];
+        potentialBenefit = this.cvHighResCountryMapping[d.name].averages[`UN_${scenario}`];
+      }
+      else{
+        nc = countryData.map(function(value,index){return value[`NC_${scenario}`];}).reduce(reducer) / countryData.length;
+        potentialBenefit = countryData.map(function(value,index){return value[`UN_${scenario}`];}).reduce(reducer);
+      }
+
+      let pop = countryData.map(function(value,index){return value[`pop_${scenario}`];}).reduce(reducer);
+     
+      return {nc,pop,potentialBenefit};
+    }
+    return null;
+  }
+
+
   clicked(that = this) {
     return function(d) {
       // hide points
       that.svg.selectAll("circle").remove();
       that.svg.selectAll("text").remove();
       removeCharts();
-      
 
       if (that.activeClick.node() === this) return that.resetClick(); // zoom out again if click on the same country
       else if (that.activeClick.node() != null) return null; // else if we are already zoomed in, do nothing
@@ -624,12 +666,26 @@ class MapPlot {
       .attr("d", this.path)
       .on("click", this.clicked())
       .on("mouseover", function(d) {
-        that.countryTooltip.text(d.name)
+        let info = that.getShortInfo(d);
+        if(info){
+          that.countryTooltip.html(d.name + 
+            "<br><p class='tooltipInfo'>Natures Contribution: " + (100 * info.nc).toFixed(0) + "%" +
+            "<br>People Exposed: " + round(info.pop) +
+            "<br> Potential Benefit: " + round(info.potentialBenefit) + "</p>")
+            .style("left", (d3.event.pageX + 7) + "px")
+            .style("top", (d3.event.pageY - 15) + "px")
+            .style("display", "block")
+            .style("opacity", 1);
+          d3.select(this).classed("selected", true)
+        }
+        else{
+          that.countryTooltip.html(d.name )                          
           .style("left", (d3.event.pageX + 7) + "px")
           .style("top", (d3.event.pageY - 15) + "px")
           .style("display", "block")
           .style("opacity", 1);
         d3.select(this).classed("selected", true)
+        }
       })
       .on("mouseout", function(d) {
         that.countryTooltip.style("opacity", 0)

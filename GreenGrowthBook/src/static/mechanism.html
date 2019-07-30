@@ -1,0 +1,50 @@
+<div class="row" style="height:100%;">
+        <script type="text/javascript">
+            load_mechanism();
+         </script>
+         
+         <div id="country-display-panel-mech"  class="modal-body country-display-panel">
+           <h4 id="country-display-mech" class="google-font country-display"></h4>
+         </div>
+    <div class="col-4" style="padding-left: 5vw; padding-top: 5vh;">
+
+        <div class="alert alert-dark">
+            <h3>Mechanisms</h3>
+        </div>
+
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="javascript:void(0)" onclick="changeImage(this)" name="Government Subsidies">Government
+                    Subsidies</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="changeImage(this)" name="Regulatory-driven Mitigation">Regulatory-driven
+                    Mitigation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="changeImage(this)" name="Voluntary Conservation">Voluntary Conservation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="changeImage(this)" name="Water Fund">Water Funds</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="changeImage(this)" name="Impact Investing">Impact Investing</a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="col-4">
+
+      <div class='mechanism-img-gallery'>
+        <a href ='./static/mechanisms/"+this.name.split(" ")[0].toLowerCase()+".png'>
+          <img src="./static/mechanisms/government.png" class='img-mechanism' >
+        </a>
+      </div>
+    </div>
+    <div class="col-4">
+        <ul id="mechanism-chapters-list">
+        </ul>
+    </div>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+</div>

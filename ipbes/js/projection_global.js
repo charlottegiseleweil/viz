@@ -107,7 +107,6 @@ function ready_global(g, path) {
       .attr("class", "mesh")
       .attr("d", path);
   });
-  console.log("hej");
 }
 
 function load_2d_global(dataset) {
@@ -128,12 +127,6 @@ let promise_global = new Promise(function(resolve, reject) {
 promise_global.then(function(result) {
    parseDataGlobal(dataset_global, draw_points);
 });
-
-
-
-
-
-
 
 // Adding tip for hover
 let tip_global = d3.tip()

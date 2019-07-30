@@ -201,6 +201,7 @@ function removeCharts() {
 }
 
 function round(value) {
+  value = parseFloat(value);
   if (Math.abs(value) > 1000000) {
       return (value / 1000000).toFixed(1) + 'M';
   } else if (Math.abs(value) > 1000) {
