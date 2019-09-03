@@ -4,6 +4,145 @@ html, body {
     margin: 0;
 }
 
+a {
+  color:#0e90ce !important;
+}
+p {
+    text-align: justify;
+}
+
+.my-label {
+  position: absolute;
+  font-size:13px;
+}
+
+.leaflet-tooltip {
+  position: absolute;
+  padding: 6px;
+  background-color: #49505700;
+  border: 0px solid #fff;
+  border-radius: 0px;
+  color: rgb(192, 235, 227);
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  box-shadow: 0 0px 0px rgba(0,0,0,0.4);
+}
+
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+    position: absolute;
+    pointer-events: none;
+    border: 0px solid transparent;
+    background: transparent;
+    content: "";
+    }
+
+#blue-drop-icon{
+   background: url(./marker/blue_drop_24.png) no-repeat;
+   height:24px;
+   width:24px;
+   border: none;
+
+   display:inline-block;
+}
+
+#green-pentagon-icon{
+   background: url(./marker/green_pentagon_24.png) no-repeat;
+   height:24px;
+   width:24px;
+   border: none;
+
+   display:inline-block;
+}
+
+#green-tree-icon{
+  background: url(./marker/green_tree_24.png) no-repeat;
+  height:24px;
+  width:24px;
+  border: none;
+  color:#b5ff7d;
+
+  display:inline-block;
+}
+
+
+.cluster{
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid black;
+  }
+
+
+.cluster-small-7-2 {
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    background-color: #5ff4ee;
+  }
+
+.cluster-medium-7-2 {
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+    line-height: 28px;
+    background-color: #4a9ff5;
+  }
+
+.cluster-large-7-2 {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    line-height: 50px;
+    background-color: #033fff;
+  }
+
+.cluster-small-7-3 {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    background-color: #7cb855;
+  }
+
+.cluster-medium-7-3 {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    line-height: 48px;
+    background-color: #469b4c;
+  }
+
+.cluster-large-7-3 {
+    width: 90px;
+    height: 90px;
+    font-size: 24px;
+    line-height: 90px;
+    background-color: #3c6e57;
+  }
+
+.cluster-small-7-4 {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    background-color: #52d681;
+  }
+
+.cluster-medium-7-4 {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    line-height: 48px;
+    background-color: #00ad7c;
+  }
+
 .mapbox {
     height: 100%;
     width: 100%;
@@ -29,11 +168,15 @@ html, body {
     border-radius: 10px;
     margin-top: 1vh;
   }
+  .img-center:hover{
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+  }
 
-  .figure-text {
-    text-align: center;
-    font-weight: bold;
-}
 
 
 #map {
@@ -65,43 +208,44 @@ html, body {
 
 #title-panel {
     position:absolute;
-    top:3vh;
+    top:4vh;
     right:1vw;
     z-index: 100;
     width: 33vw;
-    height: 16vh;
     overflow: auto;
     font-family: 'Maven Pro', sans-serif;
     padding: 0px;
-    background-color: rgba(230, 230, 230, 0.7);
+    background-color: rgba(230, 230, 230, 0.8);
     border-radius: 20px;
 }
 
 #subtitle-panel {
 
     position:absolute;
-    top:25vh;
+    top:18vh;
     right:1vw;
     z-index: 100;
     width: 33vw;
-    height: 10vh;
+    height: 20vh;
     overflow: auto;
     font-family: 'Maven Pro', sans-serif;
     padding: 0px;
-    background-color: rgba(242, 242, 242, 0.7);
+    background-color: rgba(242, 242, 242, 0.8);
     border-radius: 20px;
 }
 
 #right-menu {
     border-radius: 20px;
     position:absolute;
-    top:34vh;
+    top:22vh;
     right:1vw;
     z-index: 100;
     width: 33vw;
-    height: 65vh;
+    overflow-y: scroll;
+
+    max-height:65vh;
     margin-top: 2vh;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 1.0);
     overflow: auto;
     font-family: 'Maven Pro', sans-serif;
 }
@@ -150,9 +294,9 @@ html, body {
 }
 
 #right-title{
-  color:hsl(100, 84%, 24%, 1);
+  color:hsl(100, 84%, 24%, 1); 
   font-weight: bold;
-  font-size: 2vmax;
+  /*font-size: 2vmax;*/
 }
 #right-title-sub{
   color:black;
@@ -173,10 +317,18 @@ html, body {
   right:1vw;
 }
 
-.google-font {
+.my-font {
+    /*font-family: 'Helvetica Neue', sans-serif;*/
+    font-family: 'Akzidenz Grotesk', sans-serif;
+    text-align : center;
+}
+
+.other-font {
+    /*font-family: 'Helvetica Neue', sans-serif;*/
     font-family: 'Julius Sans One', sans-serif;
     text-align : center;
 }
+
 
 #left-menu-panel{
   position:absolute;
@@ -203,6 +355,17 @@ html, body {
     z-index: 100;
     text-align:center;
     background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0 2vh 0 0;
+    font-family: 'Righteous', cursive;
+}
+
+#buythebook {
+    position: absolute;
+    bottom: 3vh;
+    width: 15vh;
+    left: 6vh;
+    z-index: 10;
+    text-align: center;
     border-radius: 0 2vh 0 0;
     font-family: 'Righteous', cursive;
 }
@@ -256,10 +419,29 @@ html, body {
   line-height: 3vh;
   background-color : rgb(3, 59, 15);
 }
+.nav-link{
+  font-size: 4vh;
+  padding-left: 10vw;
+}
+.nav-item{
+  width: 20vw;
+  display: inline-block;
+}
+.flex-column{
+  display: inline;
+}
+
+#mech-title{
+  /*width: 17vw;
+  font-size: 4vh;
+  background-color:#999999;
+  border-width: 2px;*/
+}
+
 
 #by-type-button{
   height: 3vh;
-  width: 8vh;
+  width: 20vh;
   background-color: black;
   border-radius: 20%;
   display: inline-block;
@@ -332,6 +514,13 @@ span {
     color: aqua;
   }
 
+
+  .img-mechanism-active {
+    border-style: solid;
+    border-color: hsl(4, 72%, 55%, 0.81);
+    border-width: 0.5vh;
+  }
+
   .img-mechanism {
     width: 17vw;
     height: auto;
@@ -340,8 +529,8 @@ span {
     background-color: black;
     margin: auto;
     float: left;
-    margin-left: 7vw;
-    margin-top: 17vh;
+    margin-left: 0vw;
+    margin-top: 2vh;
   }
 
   .left-menu-sub{
@@ -378,10 +567,6 @@ span {
 }
 
 
-p {
-    text-align: justify;
-}
-
 
 .left-menu-name {
   -webkit-transform: rotate(-90deg); /* Safari 3-8 */
@@ -400,7 +585,7 @@ p {
 }
 
 .legend {
-    line-height: 18px;
+    line-height: 29px;
     padding: 1%;
     border-radius: 5px;
     border: 3px;
@@ -409,8 +594,9 @@ p {
 }
 
 .legend i {
-    width: 18px;
-    height: 18px;
+    line-height: 29px;
+    width: 24px;
+    height: 24px;
     margin-left: 0.5vw;
     float: left;
     margin-right: 1vw;
@@ -418,9 +604,11 @@ p {
 }
 
 .case-6-1-button{
-  width: 15vw;
-  background-color:rgba(156, 156, 156, 0.753);
+  width: 14vw;
+  background-color:rgb(220, 220, 220);
   cursor: pointer;
+  font-size: 0.9vw;
+  border: 2px solid black;
   border-radius: 2vh 2vh 2vh 2vh;
 }
 /*.case-6-1-button:hover {background-color: #00b300;}*/
@@ -441,11 +629,35 @@ p {
   float: right;
   top: 1vh;
   margin-left:1vw;
-  margin-top:1vh;
   border-radius: 10px;
   -webkit-filter: brightness(100%);
   width: 14vw;
 }
+
+
+.img-credit{
+  text-align: center;
+  font-size: 0.8vw;
+  font-style: italic;
+}
+
+.static-fig-credit{
+  margin-top: -4px;
+  text-align: center;
+  font-size: 0.8vw;
+  font-style: italic;
+
+
+}
+
+.figure-text {
+
+  font-size: 1vw;
+  text-align: center;
+  font-weight: bold;
+
+}
+
 
 .case-img:hover{
   -webkit-filter: brightness(70%);
@@ -482,7 +694,16 @@ p {
     width: 10vw;
     font-family: 'Maven Pro', sans-serif;
 }
-
+.dark-overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+}
 .overlay {
     height: 100%;
     width: 0;
@@ -495,7 +716,28 @@ p {
     overflow-x: hidden;
     transition: 0.5s;
   }
-
+  #static-overlay {
+    position: fixed;
+    width: min-content;
+    height: min-content;
+    top: 0vh;
+    left: 0vw;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    cursor: pointer;
+  }
+  #static-background-overlay{
+    position: fixed;
+    width: 100%;
+    display: none;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background-color: rgba(0,0,0, 0.7);
+    cursor: pointer;
+  }
   .overlay-content {
     position: relative;
     top: 25%;
@@ -540,3 +782,23 @@ p {
   ul ul li{
     color: white;
   }
+
+  .container {
+    position: relative;
+    width: fit-content;
+    float: right;
+  }
+  
+  .container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .container .svg-inline--fa{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+
+  }  

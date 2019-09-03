@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Green Growth Intl Case Studies</title>
+        <title>Green Growth That Works</title>
 
         <!-- Leaflet CSS-->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
@@ -19,19 +19,27 @@
         <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
         <link href="static/introjs.css" rel="stylesheet">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" type="text/css" href="lib/markerCluster/MarkerCluster.css" />
+        <link rel="stylesheet" type="text/css" href="lib/markerCluster/MarkerCluster.Default.css" />
     <body>
 
         <div class="opening-page">
             <div class="center-div">
-                <h1 class="google-font">Pathways to Green Growth</h2>
-                <h3 class="google-font">Mainstreaming natural capital into policy and finance: international case studies</h3>
+                <h1 class="my-font">Green Growth That Works</h2>
+                <h3 class="my-font">Natural Capital Policy and Finance Mechanisms around the World</h3>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                </div>
+                <br>
+                <a href='https://islandpress.org/books/green-growth-works' target='_blank'> 
+                    <h3 class="my-font">Buy the Book</h3>
+                    <img src='static/cover.jpg' style="width: 25vh; border-radius: 6px;">
+                </a>
+                
             </div>
         </div>
 
-        <div class="mapbox" style="display: none">
+        <div class="mapbox" id="map-div" style="display: none">
 
             <div id="map"></div>
 
@@ -43,29 +51,38 @@
             </div>
 
 
+            <div id= "buythebook">
+                <a href='https://islandpress.org/books/green-growth-works' target='_blank'> 
+                    <img src='static/cover.jpg' style="width: 100%; border-radius: 6px;">
+                    <p class="my-font" style="color: white;
+                            background-color: #021d3b;
+                            border-radius: 10px;">Buy the Book</p>
+                </a>
+            </div>
+
+
             <div id="by-type-button-panel">
               <span id='by-type-button' title='Browse by type' onclick='openNav();'>
-                By Type
+                Browse by Mechanism Type
               </span>
             </div>
 
             <div id="country-display-panel-reg"  class="modal-body country-display-panel">
-              <h4 id = "country-display-reg" class="google-font country-display"></h4>
+              <h4 id = "country-display-reg" class="my-font country-display"></h4>
             </div>
 
             <div id="bottom-menu">
             </div>
 
             <div id="right-panels">
-              <div id="title-panel" class="modal-body">
-                    <p></p>
-                     <h3 id = "right-title" class="google-font"> Green Growth That Works</h3>
-                     <h5 id = "right-title-sub" class="google-font"> Natural Capital Policy and Finance Mechanisms around the World</h5>
-                     <a id = "right-book-link" href="http://placeholder.com" class="center"> Get the book &nbsp &nbsp </a>
-                 </div>
+              <div id="title-panel" style='padding:2px;'class="modal-body">
+                     <h3 id = "right-title" class="my-font"> GREEN GROWTH THAT WORKS</h3>
+                     <h5 id = "right-title-sub" class="my-font"> Natural Capital Policy and Finance Mechanisms around the World</h5>
+              </div>
+
               <div id="subtitle-panel" class="modal-body">
                 <p></p>
-                <h5 id = "right-subtitle" class="google-font">(placeholder)</h5>
+                <h5 id = "right-subtitle" class="my-font">(placeholder)</h5>
               </div>
               <div id="right-menu" >
 
@@ -80,7 +97,8 @@
                   <a href="#">About</a>
                 </div>
          </div>
-
+         <div id="static-overlay"></div>
+         <div id="static-background-overlay"></div>
         <!-- JQuery -->
         <script src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
 
@@ -105,22 +123,28 @@
         <!-- Leaflet.js -->
         <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
         <script type="text/javascript" src="lib/Leaflet.Icon.Glyph.js"></script>
+        <script src="https://unpkg.com/georaster-layer-for-leaflet/georaster-layer-for-leaflet.browserify.min.js"></script>
 
         <!-- D3 -->
         <script src="https://d3js.org/d3.v5.js"></script>
 
         <!-- Introjs -->
         <script src="lib/intro.js"></script>
+        <script src="https://unpkg.com/shpjs@latest/dist/shp.js"></script>
 
         <!-- static JS -->
         <script src="lib/leaflet-providers.js"></script>
-        <script src="https://unpkg.com/shpjs@latest/dist/shp.js"></script>
+        <script src="lib/leaflet.shapefile.js"></script>
 
+        <script src="js/step.js"></script>
+        <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
 
         <!-- Case.js -->
         <script src="js/Case.js"></script>
         <!-- Chapter.js -->
         <script src="js/Chapter.js"></script>
+        <script src="js/cases.js"></script>
+
         <!-- left-menu.js -->
         <script src="js/left-menu.js"></script>
         <!-- right-menu.js -->
@@ -135,12 +159,18 @@
         <script src="js/main.js"></script>
         <!-- Country.js -->
         <script src="js/Country.js"></script>
+        <!-- MarkerCluster.js -->
+        <script src='lib/markerCluster/leaflet.markercluster.js'></script>
+        <!-- markers_7_2.js -->
+        <script src='js/markers_7_2.js'></script>
+        <!-- markers_7_4.js -->
+        <script src='js/markers_7_4.js'></script>
         <!-- map.js -->
         <script src="js/map.js"></script>
         <!-- figures.js -->
         <script src="js/figures.js"></script>
-
         <!-- SliderControl.js -->
         <script src="SliderControl.js"></script>
+
     </body>
 </html>
