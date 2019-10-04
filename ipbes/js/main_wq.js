@@ -1,5 +1,5 @@
 let info_measurements = {
-    UN: "A deficit in water quality regulation can be measured by nitrogen export, the amount not retained by vegetation that therefore enters waterways and drinking water supplies as pollution.",
+    UN: "A Benefit Gap in water quality regulation can be measured by nitrogen export, the amount not retained by vegetation that therefore enters waterways and drinking water supplies as pollution.",
     pop: "We use rural populations (within 100 km watersheds) as the population exposed because they are presumably less likely to have water treatment options. ",
     NC: "Nature’s contribution to Water Quality is the proportion of total nitrogen pollutant load retained by ecosystems, the pollution avoided.",
     PN: "The human pressure that creates a potential need for it in a given region or watershed is the total amount of pollutant (i.e. nitrogen load) requiring retention by vegetation in that area. -> The maximum potential benefit, which in this case is mitigating a potential harm, is based on the amount of pollution run-off (i.e. nitrogen load) requiring retention by vegetation in that area.",
@@ -12,7 +12,7 @@ let tileLayers = {
     cur:{
         UN: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:nutrient_deficit_10s_cur_compressed_md5_031d4bb444325835315a2cc825be3fd4_compressed',
-            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Deficit 2015"}),
+            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Benefit Gap 2015"}),
         pop: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:nutrient_pop_30s_cur_compressed_md5_a728d722935371a17452276ba1034296_compressed',
             format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Population 2015"}),
@@ -26,7 +26,7 @@ let tileLayers = {
     ssp1:{
         UN: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:nutrient_deficit_change_10s_ssp1_compressed_md5_fbeb8122b920cf13c325284baeba640c_compressed',
-            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Deficit SSP1"}),
+            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Benefit Gap SSP1"}),
         pop: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:nutrient_pop_change_30s_ssp1_compressed_md5_fdadefe1e84c5dcc83e76dd7cb4f1564_compressed',
             format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Population SSP1"}),
@@ -40,7 +40,7 @@ let tileLayers = {
     ssp3:{
         UN: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:nutrient_deficit_change_10s_ssp3_compressed_md5_6a2352b77f23421c1a48711a3e1d703a_compressed',
-            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Deficit SSP3"}),
+            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Benefit Gap SSP3"}),
         pop: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:nutrient_pop_change_30s_ssp3_compressed_md5_2d886ae99fc3241c05398a8948bf0f3a_compressed',
             format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Population SSP3"}),
@@ -54,7 +54,7 @@ let tileLayers = {
     ssp5:{
         UN: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:nutrient_deficit_change_10s_ssp5_compressed_md5_1244e34777bb5c0980e263390b10d6d0_compressed',
-            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Deficit SSP5"}),
+            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Benefit Gap SSP5"}),
         pop: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:nutrient_pop_change_30s_ssp5_compressed_md5_72a80daaaecf1480069dfb031d4eea12_compressed',
             format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Population SSP5"}),
@@ -203,7 +203,7 @@ let legend_values_2050 = {
 
 whenDocumentLoaded(() => {
     // Initialize dashboard
-    addMenu(3);
+    addMenu(2);
     d3.selectAll("#landingpage").attr("class", "hidden");
 });
 

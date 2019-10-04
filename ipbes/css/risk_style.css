@@ -62,6 +62,7 @@
 .tooltipInfo{
   font-size: 13px;
   margin-top: 5px;
+  text-shadow: none;
 }
 
 #country_name {

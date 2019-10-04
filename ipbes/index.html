@@ -2,12 +2,14 @@
 <html>
  
 <head>
-  <title>NCP Viewer: Today</title>
+  <title>NCP Viewer Home</title>
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   
+
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/commonStyle.css" />
   <link rel="stylesheet" type="text/css" href="css/menu.css" />
@@ -18,9 +20,79 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link href="css/bootstrap-tour-standalone.min.css" rel="stylesheet">
+
+  <!--w3 styles-->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
 
+
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-third img{margin-bottom: -6px; cursor: pointer}
+.w3-third img:hover{opacity: 0.6; transition: 0.3s}
+.coolButton {
+      background-color: rgb(255,255,255,0);
+      color: white;
+      border: 2px solid white;
+      position: relative;
+      top: -8vh;
+      background-color: black;
+       opacity: 0.6;
+       font-size: x-large;
+     }
+
+.coolButton:hover{background-color: white; color: black; transition: 0.3s}  
+
+</style>
+
+
 <body>
+  <!-- Menu Navbar -->
+ <div id="main_menu"></div>
+  <!-- End Menu Navbar -->
+
+  <!-- Title -->
+ <h1> Global Modeling of Nature’s Contribution to People</h1>
+
+ <!-- Photo grid -->
+  <div class="w3-row w3-grayscale-min">
+    <div class="w3-third" align="center">
+      <img src="static/images/wq.jpg" style="width:100%" onClick="location.href='wq.html';" alt="Water Quality Regulation">
+      <div style="max-height: 0px"><button class="coolButton" onClick="location.href='wq.html';">Water quality regulation</button></div>
+   </div>
+    
+   <div class="w3-third" align="center">
+      <img src="static/images/bumblebee.jpg" style="width:100%" onClick="location.href='poll.html';" alt="Crop Pollination">
+      <div style="max-height: 0px"><button class="coolButton" onClick="location.href='poll.html';">Crop pollination</button></div>
+    </div>
+    
+    <div class="w3-third" align="center">
+      <img src="static/images/cv.jpg" style="width:100%" onClick="location.href='coastal.html';" alt="Coastal Risk Reduction" class="w3-image">
+      <div style="max-height: 0px"><button class="coolButton" onClick="location.href='coastal.html';">Coastal risk reduction</button></div>
+    </div>
+
+  </div>
+
+  <div class="w3-row w3-grayscale-min" align="center">
+      <img src="static/images/world2.jpg" style="width:100%" onClick="location.href='today.html';" alt="World">
+
+        <div style="max-height: 0px"><button class="coolButton" style="top:-40vh" onClick="location.href='today.html';">Where is nature contributing to people today?</button>
+        </div><div style="max-height: 0px">
+        <button class="coolButton" style="top:-30vh"onClick="location.href='future.html';">Where & how may people be impacted by 2050?</button></div>
+
+
+  </div>
+
+
+
+
+
+
+
+
+  <script src="js/navigation.js"></script>
+  <script src="js/main_today.js"></script>
 
   <script src="js/lib/jquery.min.js"></script>
   <script src="js/lib/d3.js"></script>
@@ -29,91 +101,13 @@
   <script src="js/lib/d3-tip.js"></script>
   <script src="js/lib/d3-geo-projection.v2.min.js"></script>
   <script src="js/bootstrap-tour-standalone.min.js"></script>
-  <script src="js/guideTour.js"></script>
 
-
-  <!-- Menu Navbar -->
- <div id="main_menu"></div>
-  <!-- End Menu Navbar -->
-  <div id="landingpage">
-    <h3 id="landing-page-loader">loading ...</h3>
-  </div>
-
-  <div class="content-wrapper">
-     <!--left menu-->
-     <div id="left-menu">
-        <h3 id ="ecosystemServices">Nature's Contribution to People</h3>
-
-        <input id="pollination-box" type="radio" name="button-global" onclick="load_pollination_data()" value="pollination" autocomplete="off" checked  class="no_show">
-        <label for="pollination-box" class="left-menu-header" id="left-menu-header-1">Pollination <span class="glyphicon glyphicon-grain"> </span> </label>
-
-        <h4 class="left-menu-text" id="left-menu-text-1">
-            Up to two-thirds of all crops require some degree of animal pollination to reach their maximum yields,
-            and natural habitat around farmlands can support healthy
-            populations of wild pollinators by providing them with foraging and nesting resources. <a href="poll.html">More</a> <br>
-        </h4>
-  
-        <input id="water-quality-box" name="button-global" type="radio" onclick="load_waterquality_data()" value="waterquality" autocomplete="off" class="no_show">
-        <label for="water-quality-box" class="left-menu-header" id="left-menu-header-2">Water Quality Regulation <i class="fa fa-tint" viewBox = "0 0 15 15"></i> </label>
-        
-        <h4 class="left-menu-text" id="left-menu-text-2">
-            Fertilizers like nitrogen are a major source pollution to freshwater systems and drinking water. However,
-            some of it may be retained by healthy ecosystems,
-            and this nitrogen retention regulating drinking water quality is one of nature’s contributions to people. <a href="wq.html">More</a> <br>
-        </h4>
-  
-        <input id="coastal-risk-box" name="button-global" type="radio" onclick="load_coastalrisk_data()" value="coastal" autocomplete="off"  class="no_show">
-        <label for="coastal-risk-box" class="left-menu-header" id="left-menu-header-3">Coastal Risk Reduction <i class="fas fa-water"></i></label>
-        <h4 class="left-menu-text" id="left-menu-text-3">
-          Coastal habitats such as coral reefs, mangroves, salt marsh, or sea grass, attenuate waves and protect
-          the shorelines from the impacts of storms, such as floods and erosion. <a href="coastal.html">More</a> <br>
-        </h4>
-    </div>
-      <!--End of left menu-->
-      
-      <div id="main_content_container">
-          <div class="box-container">
-              <div class="box box-2-global">
-                <div class="map-global"></div>
-              </div>
-              <div id="index-map-legend">
-                  <p class="title2DLegend"> Pollination Key Areas </p>
-                <img src="static/images/legend2d.png" class="img-legend"> </img>
-                <p id="label2DLegendX">Nature's Contributions &#8594; </p>
-                <p id="label2DLegendY">People's Needs &#8594;</p>
-              </div>
-              <!--Information containter-->
-              <i id="infoButton" class="info-button fas fa-info-circle" onclick="showInfo('info-overlay')"></i>
-              <div id="info-overlay">
-                <p class="info_exit" onClick="hideInfo('info-overlay')">&#x2716;</p>
-                      <h2 class="info_head">How to read these maps?</h2>
-
-                      <p class="info_text">These maps highlight the areas where Nature's Contribution to People (NCP) is key:
-                         where both many people are exposed to high biophysical pressure (e.g Pollution load), and nature’s contributions are highest. 
-                         In these regions (colored inblack), ecosystem protection will likely provide the greatest benefits.</p><br> 
-
-                      <p class="info_text">Areas of high human need coinciding with lower contributions of nature indicate “deficits” 
-                        of benefits where they are most needed highlighting potential opportunities for ecosystem restoration to boost NCP – or 
-                        areas where other investmentsbeyond nature may be necessary to ensure well-being (colored in dark pink).</p><br> 
-
-                      <p class="info_text">Finally, areas where Nature's Contribution to People is relatively high, 
-                        despite a relatively low "need" (either because there is little biophysical need, such as little pollution, 
-                        or because population density is low) are colored in green.</p><br> 
-
-                      <p class="info_text"><a style="cursor:pointer;" onclick="hideInfo('info-overlay'); tour.restart();">Start tutorial</a></p><br> 
-                      
-
-              </div>
-          </div>
-      </div>
-</div>
 
 
     <script src="js/statFunctions.js"></script>
     <script src="js/zoom.js"></script>
-    <script src="js/projection_global.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/index_main.js"></script>
+    
+    
 </body>
 
 </html>

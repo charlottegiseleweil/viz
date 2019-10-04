@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
- 
+  
 
 <head>
 	<meta charset="utf-8">
@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title>NCP Viewer: By Countries</title>
-	<meta name="author" content="David Malmström, Anna Häägg">
+	<meta name="author" content="Charlotte Weil, David Malmström, Anna Häägg">
 	
 	<link rel="stylesheet" href="css/bootstrap.css">
   	<link rel="stylesheet" type="text/css" href="css/commonStyle.css" />
@@ -55,7 +55,7 @@
 			<h4 class="left-menu-text" id="left-menu-text-2">
 				Fertilizers like nitrogen are a major source pollution to freshwater systems and drinking water. However,
 				some of it may be retained by healthy ecosystems,
-				and this nitrogen retention regulating drinking water quality is one of nature’s contributions to people.<a href="wq.html">More</a> <br>
+				regulating drinking water quality to downstream populations.<a href="wq.html">More</a> <br>
 			</h4>
 		
 			<input id="coastal-risk-box" type="radio" class="no_show radio_btn" name="radio1" id="a_radio-1" value="cv" autocomplete="off">
@@ -89,11 +89,11 @@
 			
 		
 			<input id="nat-cap-box" type="radio" class="no_show" onclick="switchMode('NC')" name="mode"autocomplete="off">
-			<label for="nat-cap-box" class="left-menu-header">Natures contribution</label>
+			<label for="nat-cap-box" class="left-menu-header">Nature's Contribution</label>
 			
 			<br>
 
-			<div id="info_about_measurments">A deficit in pollination can be measured as the amount of crop losses due to insufficiently pollinated crops for pollination
+			<div id="info_about_measurments">A Benefit Gap in pollination can be measured as the amount of crop losses due to insufficiently pollinated crops for pollination
 			</div>
 
 		</div>
@@ -114,7 +114,7 @@
 			</div> 
 
 			<div id="distribution-chart">
-					<h2 id="distri-chart-head">How severely are people <br>Impacted?<br> (<p id ="distri-chart-choosen-scenario"></p>) </h2>
+					<h2 id="distri-chart-head">How severely would <br> people be impacted?<br> (<p id ="distri-chart-choosen-scenario"></p>) </h2>
 					<svg id="distribution"></svg>
 					<h3 id="distri-x-axis">Number of people</h3>
 					<h3 id="distri-y-axis">Coastal Hazard</h3>
@@ -123,13 +123,11 @@
 			<i class="info-button fas fa-info-circle" onclick="showInfo('info-overlay')"></i>
 			<div id="info-overlay">
 			  <p class="info_exit" onClick="hideInfo('info-overlay')">&#x2716;</p>
-				<h2 class="info_head">How to read the map?</h2>
+				<h2 class="info_head">How to read the map</h2>
 
-				<p class="info_text">This map highlight where people will be most at risk in the future.
-						By using the control panel different services and scenarios can be explored.</p><br> 
+				<p class="info_text">This map highlights where people will be most at risk in the future. By using the menu at left, different services and scenarios can be explored.</p><br> 
 
-				<p class="info_text"><i>Deficit</i> displays where people are most in need of nature’s contribution. <i>People Impacted</i> displays how big the impacted population are and
-						<i>Nature’s contribution</i> shows how much nature helps to reduce risks in different parts of the world.</p><br> 
+				<p class="info_text"><i>Benefit Gap</i> displays where potential benefits are not currently being provided by nature. <i>People Impacted</i> displays the populations impacted by these benefits or benefit gaps and <i>Nature’s contribution</i> shows the proportion of potential benefit that is provided by nature.</p><br> 
 
 				<p class="info_text">For more detailed data and the possibility to compare services and scenarios, select a country by clicking on it.</p><br> 
 			</div>
@@ -139,11 +137,11 @@
 		<div id="compare-scenarios">
 			<h1 id="compare-scenario-header">Compare Scenarios and Services</h1>
 			<div id="scenario-chart">
-				<h2 class="scenario-chart-head">How much has the total <br>deficit changed since 2015?</h2>
+				<h2 class="scenario-chart-head">How much would the total <br>Benefit Gap change by 2050?</h2>
 				<svg id="scenario-comparison-svg"></svg>
 			</div>
 			<div id="scenario-chart">
-				<h2 class="scenario-chart-head">How many people are <br> Negatively Impacted? </h2>
+				<h2 class="scenario-chart-head">How many people would be <br> negatively impacted? </h2>
 				<svg id="population-comparison-svg"></svg>
 			</div>
 		</div>

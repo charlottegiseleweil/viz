@@ -2,7 +2,8 @@ let dataset_global = 'Data/data_pol_2d.csv';
 let legendTitle = document.getElementsByClassName("title2DLegend")[0];
 let gradient_blue = 'radial-gradient( circle at 37%, rgb(105, 190, 255) 29%, rgb(236, 246, 255) 36%, rgb(228, 255, 255) 42%, rgb(215, 254, 255) 49%, rgb(204, 245, 255) 56%, rgb(191, 234, 255) 63%, rgb(147, 193, 227) 70%, rgb(147, 193, 227) 77%, rgb(147, 193, 227) 84%, rgb(81, 119, 164) 91%)';
 let counter = 0;
-let unit = "People Fed Equivalents";
+let PN_unit = "eq people fed";
+let PN_title = "Pollination-dependent crop production";
 var zoom_2D_global = get_global_zoom();
 let region_text_global = "Pollination";
 
@@ -35,7 +36,8 @@ function load_pollination_data() {
   if (pollination_box.checked == true) {
     if (water_box.checked == false && coastal_box.checked == false) {
       legendTitle.innerHTML = "Pollination Key Areas";
-      unit = "Tons of Nitrogen / Year";
+      PN_unit = "eq people fed";
+      PN_title = "Pollination-dependent crop production";
       region_text_global = "Pollination";
 
       dataset_global = 'Data/data_pol_2d.csv'
@@ -55,7 +57,8 @@ function load_waterquality_data() {
     if (pollination_box.checked == false && coastal_box.checked == false) {
       region_text_global = "Water Quality Regulation";
       legendTitle.innerHTML = "WQ Key Areas";
-      unit = "People Fed Equivalents";
+      PN_unit = "kg/Year";
+      PN_title = "Nitrogen Pollutant Load";
 
       dataset_global = 'Data/data_water_2d.csv'
       parseDataGlobal(dataset_global, draw_points);
@@ -76,7 +79,8 @@ function load_coastalrisk_data() {
   if (coastal_box.checked == true) {
     if (pollination_box.checked == false && water_box.checked == false) {
       region_text_global = "Coastal Risk Mitigation";
-      unit = "Relative Coastal Risk Index";
+      PN_unit = "(Index)";
+      PN_title = "Potential Hazard Exposure";
       legendTitle.innerHTML = "CR Key Areas";
 
       dataset_global = 'Data/data_coastal_2d.csv'
@@ -135,9 +139,11 @@ let tip_global = d3.tip()
   .offset([0, 0])
   // Here d -> is basically the data which is given to the circle -> right now it is just lat long
   .html(function(d) {
-    return "<strong>" + region_text_global + "<br>" +
-      "<strong>" + "NC" + ": <span>" + Number(d['NCP_cur']).toFixed(2) + " % </span></strong> <br>" +
-      "<strong>" + "Deficit" + ": <span>" + roundNumber(Number(d['PNpop_c_norm']).toFixed(2)) + "</span></strong> <br>";
+    return '<p style="text-shadow: 1px 1px rgba(59, 59, 59, 0.726); margin:0; padding: 0;">' + d['country'] + "</p>" +
+      "<p class='tooltipInfo'>" + "Nature's Contribution: " + Number(d['NCP_cur']).toFixed(0) + "% <br>" +
+      "People's Need: <br>" + 
+      "&nbsp &nbsp Population density: " + d['pop'] + " <br> " +
+      "&nbsp &nbsp " + PN_title + ": " + d['PN'] +"</p>";
   })
 // Adding tip to the svg
 svg_global.call(tip_global);
@@ -228,8 +234,6 @@ function draw_points(data) {
   }
   showDataGlobal(g_global, data, Quartile_33(array_PNpop_c_norm),
     Quartile_66(array_PNpop_c_norm), Quartile_33(array_NCP_cur), Quartile_66(array_NCP_cur));
-
-
 }
 
 function parseDataGlobal(url, callBack) {
@@ -241,4 +245,16 @@ function parseDataGlobal(url, callBack) {
       callBack(results.data);
     }
   });
+}
+
+function round(value) {
+  value = parseFloat(value);
+  if (Math.abs(value) > 1000000) {
+      return (value / 1000000).toFixed(0) + ' million';
+  } else if (Math.abs(value) > 1000) {
+      return (value / 1000).toFixed(0) + 'K';
+  } else if(value < 1){
+    return "NaN";
+  } else
+      return value.toFixed(0);
 }

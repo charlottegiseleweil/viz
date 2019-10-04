@@ -3,7 +3,7 @@ class DistributionChart {
   constructor() {
     // Initialize the barchart
     const svgWidth = 230;
-    const svgHeight = 200;
+    const svgHeight = 180;
     this.margin = {
       top: 15,
       right: 60,
@@ -717,7 +717,13 @@ class SuperPopulationChart {
 
       .attr("class", "axis")
       .call(d3.axisLeft(y)
-        .ticks(5, "s"));
+        .ticks(5)
+        .tickFormat(function(d) {
+          return d3.format("~s")(d).replace(/G/,"B");
+        }));
+          
+          
+        
 
     // Append Service labels
     this.g.append("g")
@@ -806,7 +812,7 @@ function min(a, b) {
 
 function round(value) {
   if (Math.abs(value) > 1000000) {
-    return (value / 1000000).toFixed(1) + 'mil';
+    return (value / 1000000).toFixed(1) + 'million';
   } else if (Math.abs(value) > 1000) {
     return (value / 1000).toFixed(0) + 'K';
   } else

@@ -9,12 +9,12 @@ The goal of this interactive viewer (tailored to the specific needs of this comp
 
 ## Prototype
 
-The visualization prototype is accessible [here](https://charlottegiseleweil.github.io/natureforpeople/index.html).
+The visualization prototype is accessible [here](https://charlottegiseleweil.github.io/natureforpeople).
 
 
 ## Structure
 
-* **index.html** offers on overview of the areas where Nature's Contribution to People (NCP) is key, for the 3 types of NCP studied: Pollination, Coastal Protection and Water Quality.
+* **today.html** offers on overview of the areas where Nature's Contribution to People (NCP) is key, for the 3 types of NCP studied: Pollination, Coastal Protection and Water Quality.
 * The 3 subpages, **pollination.html**, **waterquality.html** and **coastal.html** respectively dive in each NCP, with detailed results in terms of humanity's needs and nature's contributions, as well as methodology.
 
 

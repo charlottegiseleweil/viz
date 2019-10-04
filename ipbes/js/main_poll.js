@@ -1,5 +1,5 @@
 let info_measurements = {
-    UN: "A deficit in pollination can be measured as the amount of crop losses due to insufficiently pollinated crops for pollination.",
+    UN: "A Benefit Gap in pollination can be measured as the amount of crop losses due to insufficiently pollinated crops for pollination.",
     pop: "We consider “local” beneficiaries as populations whose dietary requirements exceed pollinator-independent production within 100 km.",
     NC: "Nature’s contribution to pollination is represented by the proportion of total potential pollination- dependent crop output that is produced.",
     PN: "The potential human need for benefits of nature is manifested by the total agricultural crop output that is dependent to some degree on insect pollination.  -> The maximum potential benefit is manifested by the total agricultural crop production that is dependent to some degree on insect pollination.",
@@ -12,7 +12,7 @@ let tileLayers = {
     cur:{
         UN: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:pollination_deficit_10s_cur_compressed_md5_6db2748b01d6541663f0698a8f34a607_compressed',
-            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Deficit 2015"}),
+            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Benefit Gap 2015"}),
         pop: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:pollination_pop_30s_cur_md5_566d70b81ef5a1746ab5c66cbbe1d658',
             format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Population 2015"}),
@@ -26,7 +26,7 @@ let tileLayers = {
     ssp1:{
         UN: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:pollination_deficit_change_10s_ssp1_compressed_md5_7b743214d92a37712f1fa678427f95ad_compressed',
-            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Deficit SSP1"}),
+            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Benefit Gap SSP1"}),
         pop: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:pollination_pop_change_30s_ssp1_md5_353845ac0bdc57ce67af15ae2bd9c593',
             format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Population SSP1"}),
@@ -40,7 +40,7 @@ let tileLayers = {
     ssp3:{
         UN: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:pollination_deficit_change_10s_ssp3_compressed_md5_5a0488cac7fd542066c4b36596c67f36_compressed',
-            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Deficit SSP3"}),
+            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Benefit Gap SSP3"}),
         pop: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:pollination_pop_change_30s_ssp3_md5_0e58c680d510edcb20d2118eff3a47bd',
             format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Population SSP3"}),
@@ -54,7 +54,7 @@ let tileLayers = {
     ssp5:{
         UN: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:pollination_deficit_change_10s_ssp5_compressed_md5_19f1e1f027e468ea2217903c605cd0b7_compressed',
-            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Deficit SSP5"}),
+            format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Benefit Gap SSP5"}),
         pop: L.tileLayer.wms(ipbes_cp_wms_url,{
             layers: 'ipbes:pollination_pop_change_30s_ssp5_md5_670ab322ab9deb6820b5e16749377204',
             format: 'image/png',styles: [''],transparent:true,attribution: "NatCap &mdash; Population SSP5"}),
@@ -69,9 +69,9 @@ let tileLayers = {
 
 let legend_title_2015 = {
     UN: "Lost Crop Production <br> (in people fed/900m2)",
-    pop: "Pollination Dependant <br> Population",
+    pop: "Pollination Dependent <br> Population",
     NC: "Pollination Need Met <br> (%)",
-    PN: "Pollination-Dependant <br> Crop Production <br> (in people fed)",
+    PN: "Pollination-Dependent <br> Crop Production <br> (in people fed)",
 };
 
 let legend_title_2050 = {
@@ -202,7 +202,7 @@ let legend_values_2050 = {
 
 whenDocumentLoaded(() => {
     // Initialize dashboard
-    addMenu(3);
+    addMenu(4);
     d3.selectAll("#landingpage").attr("class", "hidden");
 });
 

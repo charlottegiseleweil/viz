@@ -1,5 +1,5 @@
 whenDocumentLoaded(() => {
-  addMenu(5);
+  addMenu(1);
   d3.selectAll("#landingpage").attr("class", "hidden");
   
   

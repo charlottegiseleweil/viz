@@ -12,9 +12,9 @@ let opts = {
 
 let info_measurements = {
   UN: {
-    ndr: "A deficit in water quality regulation can be measured by nitrogen export, the amount not retained by vegetation that therefore enters waterways and drinking water supplies as pollution.",
-    poll: "A deficit in pollination can be measured as the amount of crop losses due to insufficiently pollinated crops for pollination.",
-    cv: "A deficit in coastal protection can be measured as the exposure to coastal hazards, the magnitude of exposure still remaining after the attenuation of storm surge by any coastal habitat"
+    ndr: "A Benefit Gap in water quality regulation can be measured by nitrogen export, the amount not retained by vegetation that therefore enters waterways and drinking water supplies as pollution.",
+    poll: "A Benefit Gap in pollination can be measured as the amount of crop losses due to insufficiently pollinated crops for pollination.",
+    cv: "A Benefit Gap in coastal protection can be measured as the exposure to coastal hazards, the magnitude of exposure still remaining after the attenuation of storm surge by any coastal habitat"
   },
   pop: {
     ndr: "We use rural populations (within 100 km watersheds) as the population exposed because they are presumably less likely to have water treatment options. ",
@@ -28,9 +28,45 @@ let info_measurements = {
   }
 };
 
+const legendLabels = {
+  UN: {
+    ndr: "Nitrogen Export",
+    poll: "Lost crop production",
+    cv: "Coastal Hazard Index"
+  },
+  pop: {
+    ndr: "Rural Population at risk",
+    poll: "Pollination-dependent Population",
+    cv: "Coastal Population at risk"
+  },
+  NC: {
+    ndr: "Nitrogen Pollution Avoided",
+    poll: "Pollination Need Met",
+    cv: "Coastal Risk Reduction"
+  }
+};
+
+const legendLabelsUnits = {
+  UN: {
+    ndr: "kg/year",
+    poll: "eq people fed",
+    cv: ""
+  },
+  pop: {
+    ndr: "",
+    poll: "",
+    cv: ""
+  },
+  NC: {
+    ndr: "",
+    poll: "",
+    cv: ""
+  }
+};
+
 whenDocumentLoaded(() => {
   // Initialize dashboard
-  addMenu(2);
+  addMenu(6);
   is2050 = true;
   colorSchema = {
     UN: [d3.hcl(100, 90, 100), d3.hcl(15, 90, 60)],
@@ -113,35 +149,10 @@ function showledgend(color) {
 }
 
 function updateLabels(dataset, mode) {
-  const legendLabels = {
-    UN: {
-      ndr: "Nitrogen Export",
-      poll: "Lost crop production",
-      cv: "Coastal Hazard"
-    },
-    pop: {
-      ndr: "Rural Population at risk",
-      poll: "Pollination-dependant Population",
-      cv: "Coastal Population at risk"
-    },
-    NC: {
-      ndr: "Nitrogen Pollution Avoided",
-      poll: "Pollination Need Met",
-      cv: "Coastal Risk Reduction"
-    }
-  };
-  
-  const labels = {
-    UN: {
-      ndr: "Nitrogen Export",
-      poll: "Lost crop production",
-      cv: "Coastal Hazard"
-    },
-  };
 
   document.getElementById('legendHeader').innerHTML =  legendLabels[mode][dataset];
   document.getElementById('legendValue_max').innerHTML =  round(plot_object.dataExtent[1]);
-  document.getElementById('distri-y-axis').innerHTML = labels['UN'][dataset];
+  document.getElementById('distri-y-axis').innerHTML = legendLabels['UN'][dataset];
 
 }
 
@@ -203,7 +214,7 @@ function removeCharts() {
 function round(value) {
   value = parseFloat(value);
   if (Math.abs(value) > 1000000) {
-      return (value / 1000000).toFixed(1) + 'M';
+      return (value / 1000000).toFixed(0) + ' million';
   } else if (Math.abs(value) > 1000) {
       return (value / 1000).toFixed(0) + 'K';
   } else if(value < 1){
