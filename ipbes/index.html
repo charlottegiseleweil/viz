@@ -2,7 +2,15 @@
 <html>
  
 <head>
-  <title>NCP Viewer Home</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149667597-1"></script>
+    <script src="js/gtag.js"></script>
+
+  <title>Nature's Contribution to People ~ Viewer</title>
+  <meta property="og:description" content="An interactive view of Global Modeling of Nature’s Contribution to People (Chaplin-Kramer, 2019)"/>
+  <meta property="og:image" content="static/images/tumb.png"><!-- or home.png, or peeps/cw.jpg-->
+
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,6 +52,16 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 .coolButton:hover{background-color: white; color: black; transition: 0.3s}  
 
+a{
+    text-decoration: none;
+    color: var(--light_blue)
+    background-color: transparent;
+  -webkit-text-decoration-skip: objects
+}
+a:active, a:hover {
+  outline-width: 0
+}
+
 </style>
 
 
@@ -54,9 +72,16 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Title -->
  <h1> Global Modeling of Nature’s Contribution to People</h1>
+ <!--READ THE PAPER - OPTION BUTTON 
+  <center><div><center><button class="coolButton" style="top: 0px;margin:2vh;"onClick="location.href='https://science.sciencemag.org/lookup/doi/10.1126/science.aaw3372';">Read the paper</button></center></div></center>-->
+
+<!-- READ THE PAPER - OPTION LINK
+  <center>An interactive viewer supporting <a href='https://science.sciencemag.org/lookup/doi/10.1126/science.aaw3372'>Chaplin-Kramer et al. 2019 (Science)</a></center><br>-->
+
 
  <!-- Photo grid -->
   <div class="w3-row w3-grayscale-min">
+    
     <div class="w3-third" align="center">
       <img src="static/images/wq.jpg" style="width:100%" onClick="location.href='wq.html';" alt="Water Quality Regulation">
       <div style="max-height: 0px"><button class="coolButton" onClick="location.href='wq.html';">Water quality regulation</button></div>
