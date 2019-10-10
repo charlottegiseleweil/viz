@@ -90,8 +90,8 @@
 
 
 	<div id="main_content_container">
-
-		<style>
+<!-- Bug Error Message -->
+<style>
 #ErrorMessage {
     position: absolute;
     z-index: 1000000000000;
@@ -103,10 +103,30 @@
     font-size: x-large;
     padding:2vh;
 }
+.coolButton {
+      background-color: rgb(255,255,255,0);
+      color: white;
+      border: 2px solid white;
+      position: relative;
+      background-color: black;
+      opacity: 0.6;
+      font-size: x-large;
+     }
+
+.coolButton:hover{background-color: white; color: black; transition: 0.3s}  
+
 </style>
-<!-- Bug Error Message -->
+
+<script>
+	function closeErrorMessage() {
+	  var x = document.getElementById("ErrorMessage");
+	  x.style.display = "none";
+	}
+</script>
+
 <div id="ErrorMessage">
-	<p> Due to very high traffic, fine resolution maps may be extremely slow to render today. </p><p>You may <a target='_blank' href='http://ipbes-natcap-ecoshard-data-for-publication.ecoshard.org/'>download the data</a>, explore overviews <a href="future.html">by countries</a>, <a href="today.html">by degree</a>, or come back in a few hours! </p><p>Apologies!</p>
+	<p> Due to very high traffic, fine resolution maps may be extremely slow to render today. </p><p>You may <a target='_blank' href='http://ipbes-natcap-ecoshard-data-for-publication.ecoshard.org/'>download the data</a>, <a href="future.html">explore all pollination results by countries</a>, <a href="today.html">overviews by degree</a>, or come back in a few hours! </p><p>Apologies!</p>
+	<div ><button class="coolButton" onClick="closeErrorMessage()">Ok</button></div>
 </div>
 
 

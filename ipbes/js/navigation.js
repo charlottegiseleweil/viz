@@ -90,6 +90,12 @@ function addMenu(current = 1) {
         case 1:
             landingpage.setAttribute("id", "selectedTab");
             break;
+        case 5:
+            today.setAttribute("id", "selectedTab");
+            break;
+        case 6:
+            future.setAttribute("id", "selectedTab");
+            break;
         case 2:
             wq.setAttribute("id", "selectedTab");
             break;
@@ -98,12 +104,6 @@ function addMenu(current = 1) {
             break;
         case 4:
             polli.setAttribute("id", "selectedTab");
-            break;
-        case 5:
-            today.setAttribute("id", "selectedTab");
-            break;
-        case 6:
-            future.setAttribute("id", "selectedTab");
             break;
         case 7:
             about.setAttribute("id", "selectedTab");
@@ -116,11 +116,11 @@ function addMenu(current = 1) {
       }
 
     menu.appendChild(home);
+    menu.appendChild(todayTab);
+    menu.appendChild(futureTab);
     menu.appendChild(wqTab);
     menu.appendChild(coastalTab);
     menu.appendChild(pollTab);
-    menu.appendChild(todayTab);
-    menu.appendChild(futureTab);
     menu.appendChild(aboutab);
    
   }
