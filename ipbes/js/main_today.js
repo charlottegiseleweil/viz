@@ -13,3 +13,12 @@ function whenDocumentLoaded(action) {
       action();
     }
   }
+
+  function removeOverlay(){
+    document.getElementById("new_user_overlay").remove();
+  }
+
+  function removeOverlayMobile(){
+    document.getElementById("new_user_overlay_mobile").remove();
+  }
+  
