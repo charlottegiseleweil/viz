@@ -16,16 +16,11 @@
 
     var basemap = L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
-      {
-        attribution: "OpenStreetMap"
-      }
     );
 
     var basemap2 = L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
-      {
-        attribution: "OpenStreetMap"
-      }
+      {attribution: "OpenStreetMap"}
     );
 
     var labels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
@@ -65,15 +60,15 @@
 
 
     var map1 = L.map("map1", {
-      layers: [basemap, LULC_MAP_Hoy,labels],
+      layers: [basemap],// LULC_MAP_Hoy,labels],
       center: [-12.85, -69.7],
-      zoom: 10
+      zoom: 9
     });
 
     var map2 = L.map("map2", {
-      layers: [basemap2, LULC_PEM_Sost,labels2],
+      layers: [basemap2],// LULC_PEM_Sost,labels2],
       center: [-12.85, -69.7],
-      zoom: 10,
+      zoom: 9,
       zoomControl: false
     });
 
@@ -87,57 +82,137 @@
     // Add shapefile or area AOI de enfoque
     var layers = []
     map_styling();
-    ////// Shapefile layers /////
-    function shapefileLayer(variable,style=shpStyle){
-        layers[variable] = new L.Shapefile("data/shapefiles/"+variable+".zip",{
+    ////// Shapefile layers -- make Styles in mapUtils.js/////
+    function shapefileLayer(shapefileName,style=shpStyle){
+        layers[shapefileName] = new L.Shapefile("data/shapefiles/"+shapefileName+".zip",{
             style: style},{
             onEachFeature: function(feature, layer) {}
           });
       }; 
+
+    // AOI
     shapefileLayer("AOI_PEM");
     layers["AOI_PEM"].addTo(map2);
 
-// - - - - - - -
-// Update Map 2
-// - - - - - - -
+    // Rivers
+    shapefileLayer("corrientes",riverStyle);
+    layers["rivers"] = layers["corrientes"];
 
-    function updateMap2(scenario) {
-      console.log("Updating map2 with scenario " + scenario);
+    // Make Shapefile layers for Indice Hidrico 
+    // TODO: to optimize shapefileLayer and style function there
+    
+    shapefileLayer("IndiceHidrico",hidricoBaseStyle);
+    shapefileLayer("IndiceHidricoREAL",hidricoREALStyle);
+    shapefileLayer("IndiceHidricoSOST",hidricoSOSTStyle);
+    shapefileLayer("IndiceHidricoPEOR",hidricoPEORStyle);
 
-      map2.eachLayer(function(layer) {
-        if (
-          layer._url !=
-          "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+
+
+/* JavaScript improvemt TODO 
+function removeLayers(layer,map) {
+    if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+          ) {
+    map.removeLayer(layer)}
+   };
+*/
+
+function updateMap1(mode) {
+  if (mode == 'LU') {
+      // Remove layers
+      map1.eachLayer(function(layer) {
+        if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
         ) {
-          map2.removeLayer(layer);
-          console.log('(Removed layer ',layer._url, ' )');
+          map1.removeLayer(layer);
         }
       });
 
-      /*map2.eachLayer(function(layer) {
-        if  (layer._url) {
-          console.log(layer._url);
-          if (layer._url.toString().startsWith("https://charlottegiseleweil\
-                                    .github.io/tiles/amazon/Usodelsuelo")){
-            map2.removeLayer(layer);
-            console.log('removed layer ');
-          }
-        };
-      });*/
+      // Add layers
+      lyr = LULC_MAP_Hoy;
+      lyr.addTo(map1);
+      labels.addTo(map1);
+  }
+  else if (mode == "Hidrico") {
+    // Remove layers
+      map1.eachLayer(function(layer) {
+        if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+        ) {
+          map1.removeLayer(layer);
+        }
+      });
 
+    // Add layers
+    lyr = layers["IndiceHidrico"];
+    lyr.addTo(map1);
+    labels.addTo(map1);
+
+  }
+  else {
+    console.log("Unknown mode : "+mode)
+  }
+};
+
+function updateMap2(mode,scenario) {
+  scenario = $('input[name=escenarios]:checked').val();
+
+  console.log("Updating map2 with scenario " + scenario);
+
+  if (mode == 'LU') {
+      // Remove layers
+      map2.eachLayer(function(layer) {
+        if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+        ) {
+          map2.removeLayer(layer);
+        }
+      });
+
+      // Pick layer to add (according to scenario)
       if (scenario == "Peor") {
         var lyr = LULC_PEM_Peor;
       } else if (scenario == "Real") {
         var lyr = LULC_PEM_Real;
-      } else if (scenario == "Sost") {
+      } else {//if (scenario == "Sost") {
         var lyr = LULC_PEM_Sost;
       }
 
+      // Add layers
       lyr.addTo(map2);
       labels2.addTo(map2);
-      layers["AOI_PEM"].addTo(map2);
+  }
+  else if (mode == "Hidrico") {
+    // Remove layers
+    map2.eachLayer(function(layer) {
+        if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+        ) {
+          map2.removeLayer(layer);
+        }
+      });
 
-    }
+    // Pick layer to add (according to scenario)
+    if (scenario == "Peor") {
+        var lyr = layers["IndiceHidricoPEOR"]//layers["IndiceHidrico2"["ISH_PEOR"]];
+      } else if (scenario == "Real") {
+        var lyr = layers["IndiceHidricoREAL"]//layers["IndiceHidrico"["ISH_REAL"]];
+      } else {//if (scenario == "Sost") {
+        var lyr = layers["IndiceHidricoSOST"];
+      }
+
+    // Add layers
+    lyr.addTo(map2);
+    labels2.addTo(map2);
+
+  }
+  else {
+    console.log("Unknown mode : "+mode)
+  }
+};
+
+
+
+// ---
+$( document ).ready(function() {
+    switchMode('Hidrico');
+
+});
 
 
 // - - - - - - - -
