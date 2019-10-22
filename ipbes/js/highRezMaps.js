@@ -48,6 +48,18 @@ let labelbasemap1  = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/
   maxZoom: 19
 });
 
+let onlyLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 19
+});
+
+let onlyLabels1 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 19
+});
+
 /*Add a labelsCheckbox */
 function labelsCheckbox() {
   showlabels = !showlabels;
@@ -67,6 +79,9 @@ function labelsCheckbox() {
     });
     promise_layer.then(function(result) {
       updateMap(current_mode, current_scenario, true);
+      // Labels on top too:
+      onlyLabels.addTo(map2050);
+      onlyLabels1.addTo(map2015);
     });
   }
   else {
