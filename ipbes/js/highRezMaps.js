@@ -140,6 +140,12 @@ function updateMap(mode, scenario, changeMode = false) {
 
       updateLegend()
     console.log('Updating Map: '+ mode+' '+scenario)
+    if(showlabels) {
+      // Labels on top too:
+      onlyLabels.addTo(map2050);
+      onlyLabels1.addTo(map2015);
+    } 
+
 }
 
 /*Add map titles*/
