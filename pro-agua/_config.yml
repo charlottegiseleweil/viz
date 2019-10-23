@@ -1,4 +1,0 @@
-exclude: []
-webrick:
-  headers:
-    Access-Control-Allow-Origin: "*"
