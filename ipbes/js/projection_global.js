@@ -139,10 +139,15 @@ let tip_global = d3.tip()
   .offset([0, 0])
   // Here d -> is basically the data which is given to the circle -> right now it is just lat long
   .html(function(d) {
+
+    // the data is not coherent, NCP_cur ranges from 1-100 for water + poll but 0-1 for coastal
+    let nc = coastal_box.checked == false ? Number(d['NCP_cur']).toFixed(0 ): Number(d['NCP_cur'] * 100).toFixed(0);
+    let pop = d.pop == "" ?"No data" : d.pop;
+
     return '<p style="text-shadow: 1px 1px rgba(59, 59, 59, 0.726); margin:0; padding: 0;">' + d['country'] + "</p>" +
-      "<p class='tooltipInfo'>" + "Nature's Contribution: " + Number(d['NCP_cur']).toFixed(0) + "% <br>" +
+      "<p class='tooltipInfo'>" + "Nature's Contribution: " + nc + "% <br>" +
       "People's Need: <br>" + 
-      "&nbsp &nbsp Population density: " + d['pop'] + " <br> " +
+      "&nbsp &nbsp Population density: " + pop + " <br> " +
       "&nbsp &nbsp " + PN_title + ": " + d['PN'] +"</p>";
   })
 // Adding tip to the svg
