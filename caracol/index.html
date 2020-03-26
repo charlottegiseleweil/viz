@@ -1,0 +1,175 @@
+<html>
+	<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<title>SDP CMCC Belize</title>
+	
+	<!-- Leaflet & Plugins -->
+	<script src="src/leaflet/leaflet.js"></script>
+	<script src="js/lib/leaflet.draw.js"></script>
+	<link rel="stylesheet" href="src/leaflet/leaflet.css"/>
+	<link rel="stylesheet" href="src/Control.MiniMap.css" />
+	<script src="src/Control.MiniMap.js" type="text/javascript"></script> 
+	
+
+	<!--jQuery-->
+	<script src="js/lib/jquery-2.1.1.min.js"></script> 
+
+	<!--Others Libs-->
+	<script src="js/lib/includeHTML.js"></script>
+
+	<!-- My CSS -->
+	<link rel="stylesheet" href="css/belizeStylesheet.css"/>
+
+	
+	<!-- ANDREA, WHAT IS THIS ?? YOU HAD IT DUPLICATE - WHAT IS IT?!-->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+   <script type="text/javascript" src="js/lib/leaflet.ajax.min.js"></script>
+
+
+  	<!--Leaflet Shp-->
+   	<script src="https://unpkg.com/shpjs@latest/dist/shp.js"></script> <!-- ANDREA: IS THIS SHP.JS USEFUL FROM ONLINE SINCE YOU HAVE IT LOCALLY?-->
+   	<script src="js/lib/leaflet.shpfile.js"></script>
+	<script src="js/lib/shp.js"></script> <!-- ANDREA: SEE, YOU HAVE IT LOCALLY!-->
+
+    <!-- Materialize > I think this is useless Andrea, right? 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>    -->
+    <link rel="stylesheet" href="css/w3template.css"/>
+
+	
+	</head>
+
+
+
+	<body>
+
+<!-- Base Map-->
+<div id="mapid"></div>
+
+
+<script src="js/maps.js"></script>
+
+<!-- Selection Panel -->
+<div id="panel" class="panels"> 
+	<!-- Or just do this: <div w3-include-html="html/panel.html"></div>-->
+	
+	<!-- Title -->
+	<h1 id="viewerTitle">Sustainable Development </h1>
+	<h4>in <i>Caracol-Chiquibul-Mountain Pine Ridge</i>, Belize</h4>
+
+	<!-- Buttons -->
+	<div id='buttonsRow'>
+		<button type= "button" class="button" id="LULCScenarioButton" onclick="LULCPanelOpen()">
+			LULC Scenarios</button>
+		<button type= "button" class="button" style="display: inline;" id="dataDownloadButton" onclick="dataPanelOpen()">
+			Data Download</button>
+		<button type= "button" class="button" style="display: inline;" id="aboutPanelButton" onclick="aboutPanelOpen()">
+			About</button>
+	</div>
+
+	<div class="layerChecks" id="newRoad"><input type = "checkbox" id="newRoadCheckBox"> Improved Caracol Road</div> <!-- why does this have end tag for h5? -->
+	<hr>
+	<div class="layerChecks layerTitle" id="allToursim"> Tourism</div>
+	<div class="layerChecks" id="tourismArchKey"><input type = "checkbox" id="tourismArchKeyCheckBox"> Nature/Key Cultural Sites</div>
+	<div class="layerChecks" id="tourismImpacted"><input type = "checkbox" id="tourismImpactedCheckBox"> Impacted Toursit Sites</div>
+	<div class="layerChecks" id="tourismExpanded"><input type = "checkbox" id="tourismExpandedCheckBox"> Tourism Expansion</div>
+	<br>
+	<div class="layerChecks layerTitle" id="allMining"> Mining</div>
+	<div class="layerChecks" id="mining"><input type = "checkbox" id="miningCheckBox"> Mining Areas</div>
+	<div class="layerChecks" id="miningExpansion"><input type = "checkbox" id="miningExpansionCheckBox"> Mining Expansion</div>
+	<br>
+	<div class="layerChecks layerTitle" id="allAgriculture"> Agriculture</div>
+	<div class="layerChecks" id="currentAgriculture"><input type = "checkbox" id="currentAgricultureCheckBox"> Current Agriculture Zones</div>
+	<div class="layerChecks" id="agExpansion"><input type = "checkbox" id="agExpansionCheckBox"> Agriculture Expansion</div>
+	<br>
+	<div class="layerChecks layerTitle" id="allTimber"> Timber</div>
+	<div class="layerChecks" id="timber"><input type = "checkbox" id="timberCheckBox"> Timber</div>
+	<div class="layerChecks" id="timberExpansion"><input type = "checkbox" id="timberExpansionCheckBox"> Timber Expansion</div>
+	<br>
+	<div class="layerChecks layerTitle" id="allEnergySites"> Energy</div>
+	<div class="layerChecks" id="energy"><input type = "checkbox" id="energyCheckBox"> Dams</div>
+	<div class="layerChecks" id="energySites"><input type = "checkbox" id="energySitesCheckBox"> Potential Sites for Energy</div>
+	<br><hr>
+	<div class="layerChecks" id="watersheds"><input type = "checkbox" id="watershedsCheckBox"> Waterways</div>
+	<div class="layerChecks" id="CMCCAreas"><input type = "checkbox" id="CMCCAreasCheckBox"> CMCC Areas</div>
+	<div class="layerChecks" id="CMCCCommunities"><input type = "checkbox" id="CMCCCommunitiesCheckBox"> CMCC Communities</div>
+	<div class="layerChecks" id="Roads"><input type = "checkbox" id="roadsCheckBox"> All roads</div>
+
+</div><!-- Close selection Panel  -->
+
+
+<!-- Data Download Panel-->
+<div class= "close panels" id=dataDownloadPanel>
+	<div w3-include-html="html/dataDownloadPanel.html"></div>
+</div>
+
+
+
+
+
+<!-- Legend -->
+<div class="InteractiveLegend panels" id="interactiveLegend">
+	<div w3-include-html="html/legend.html"></div>
+</div>
+
+
+
+
+<!-- LULC Panel TO DO !!!
+	Notes: all open with the same button on map, display should also fit in screen with content panel, about panel, and legend -->
+<div class= "LULCclose panels" id= "LULCPanel3">case 3 <button type= "button" class= "exitButton" onclick="LULCPanelClose()">X</button>
+	<img src="img/placeholdersmall.png" height="100" width="100">
+	<img src="img/placeholdersmall.png" height="100" width="100">
+	<img src="img/placeholdersmall.png" height="100" width="100">
+</div>
+
+<div class= "LULCclose panels" id= "LULCPanel2">case 2 <!--<button type= "button" class= "exitButton" onclick="LULCPanelClose2()">X</button>-->
+	<img src="img/placeholdersmall.png" height="100" width="100">
+	<img src="img/placeholdersmall.png" height="100" width="100">
+	<img src="img/placeholdersmall.png" height="100" width="100">
+</div>
+<div class= "LULCclose panels" id= "LULCPanel1">case 1 <!--<button type= "button" class= "exitButton" onclick="LULCPanelClose1()">X</button>-->
+	<img src="img/placeholdersmall.png" height="100" width="100">
+	<img src="img/placeholdersmall.png" height="100" width="100">
+	<img src="img/placeholdersmall.png" height="100" width="100">
+</div>
+</div>
+
+<!--About panel on top of scenarios, also easy to x out of it TO DO !!!-->
+<div class= "close panels" id=AboutPanel>Learn about this viewer, cool work went into it
+<button type= "button" class= "exitButton" onclick="aboutPanelClose()" >X</button></div>
+
+
+
+
+<!-- JavaScript --> 
+
+<script src="js/belizeJS.js"></script>
+<script src="js/dataDownloadControls.js"></script>
+<!--Data Layers
+ may end up at the same place as the selection panel but could be separate under this heading, includes styling for the layers -->
+ <script src="js/layers.js"></script>
+<script src="js/LULCControls.js"></script>
+
+<script src="js/aboutControls.js"></script>
+<script src="js/lib/leaflet.shpfile.js"></script>
+<script src="js/lib/shp.js"></script>
+
+<script src='js/map_styling.js'> </script>
+<script src='js/map.js'> </script>
+<script src='js/main.js'> </script>
+<script src='js/tabs.js'> </script>
+
+<script>includeHTML();</script>
+
+	
+	</body>
+
+
+
+</html>

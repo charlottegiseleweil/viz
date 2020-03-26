@@ -1,0 +1,231 @@
+h1, h2, h3, h4 {
+  color: lightblue;  /* first colorsheet : #F7B733*/
+}
+
+h2 {
+	margin: 1%;
+}
+
+h1,h2,h3,h4 {
+	font-weight: normal;
+}
+
+.panels {
+			background-color: #302e25; /* first colorsheet : #003366*/
+		}
+
+.layerTitle {
+			color: cadetblue; /* first colorsheet : #darkorange*/ 
+		} 
+
+p {
+	color:white;   
+}
+
+strong *{
+			color: yellow;   /*cadetblue*/
+		}
+
+html *{
+   			
+   			font-family: Verdana !important;
+		}
+
+
+		#mapid {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 100%;
+			z-index: 1;
+
+		}
+
+		.panels {
+			background-color: #302e25; /*Andrea's: #003366*/
+		}
+
+		#panel {
+			display: inline-block;
+			float: right;
+			padding: 1.5%;
+			width: 30%;
+			top: 2%;
+			right: 15px;
+			height: 88%;
+			opacity: 0.85;
+			border: 2px;
+			border-color: #F7B733;
+			z-index: 99;	
+			border-radius: 25px;
+			box-shadow: none;
+			position: absolute;
+			z-index: 500;
+			overflow: scroll;
+			position: absolute;
+			right: 15px;
+		}
+
+		.layerChecks {
+			opacity: 1;
+			color: #DFDCE3;
+
+		}
+
+		.layerTitle {
+			color: lightblue; /* first colorsheet : #darkorange*/ 
+			font-size: 2.7vh;
+		} 
+
+
+
+		.button {
+			border-radius: 8px;
+		    margin: 1vh;
+		    display: inline;
+		    font-size: 2vh; 
+		}
+
+
+
+		.LULCpanel {
+			position: absolute;
+			display: inline-block;
+			float: right;
+			padding: 1.5%;
+			width: 100px;
+			height: 500px;
+			color: #DFDCE3;
+			z-index: 99;
+			border-radius: 25px;
+			opacity: 0.85;
+			background-color: #302e25;
+
+		}
+
+
+		#LULCPanel3 {
+			top: 2%;
+			right: 35%;
+			position: absolute;
+
+		}
+
+
+		#LULCPanel2 {
+			top: 2%;
+			right: 50%;
+			position: absolute;
+
+		}
+
+		#LULCPanel1 {
+			top: 2%;
+			right: 65%;
+			position: absolute;
+
+		}
+
+		.AboutPanel {
+			display: inline-block;
+			float: right;
+			padding: 1.5%;
+			width: 40%;
+			height: 70%;
+			overflow: scroll;
+			color: #DFDCE3;
+			z-index: 100;
+			top: 2%;
+			right: 35%;
+			position: absolute;
+			border-radius: 25px;
+			opacity: 0.85;
+			background-color: #302e25;
+
+		}
+
+		.dataLink {
+			/*font-size: 1vh;*/
+		}
+
+
+		.exitButton {
+			background-color: #994000;
+			float: right;
+		}
+
+		.close {
+			display: none;
+		}
+
+		.LULCclose{
+			display: none;
+		}
+
+		#LULCclose{
+			display: none;
+		}
+
+		#interactiveLegend{
+			display: inline-block;
+			float: left;
+			padding: 1.5%;
+			width: 20%;
+			height: auto;
+			max-height: 50%;
+			overflow: scroll;
+			color: #DFDCE3;
+			z-index: 98;
+			bottom: 5%;
+			left: 15px;
+			position: absolute;
+			border-radius: 25px;
+			opacity: 0.85;
+
+		}
+
+		.panelOption{
+			padding: 0.2%;
+			font-size: 14px;
+		}
+
+		.leaflet-control-layers {
+			z-index: 900;
+
+		}
+
+		.leaflet-control{
+			z-index: 900;
+		}
+
+		
+
+		
+
+		.dataDownload {
+			display: inline-block;
+			float: right;
+			padding: 1.5%;
+			width: 30%;
+			height: 66.8%;
+			color: #DFDCE3;
+			z-index: 100;
+			opacity: 0.85;
+			top: 23.2%;
+			right: 35%;
+			position: absolute;
+			border-radius: 25px;
+			overflow: scroll;
+			background-color: #302e25;
+
+		}
+
+		.ILImage {
+			border-radius: 8px;
+			z-index: 500;
+			opacity: 1;
+		}
+
+
+
+

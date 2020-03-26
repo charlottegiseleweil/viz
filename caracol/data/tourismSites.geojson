@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"name": "tourismSites",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Big Rock", "Ownership": "Public", "Type": null, "Management": "Forestry", "Latitude": 17.033142, "Longitude": -88.974704 }, "geometry": { "type": "Point", "coordinates": [ -88.9747, 17.03314 ] } },
+{ "type": "Feature", "properties": { "Name": "Caracol", "Ownership": "Public", "Type": null, "Management": "NICH", "Latitude": 16.763082, "Longitude": -89.117815 }, "geometry": { "type": "Point", "coordinates": [ -89.11781, 16.76308 ] } },
+{ "type": "Feature", "properties": { "Name": "Douglas D'Silva", "Ownership": "Public", "Type": null, "Management": "Forestry", "Latitude": 16.971394, "Longitude": -88.991098 }, "geometry": { "type": "Point", "coordinates": [ -88.99109, 16.97139 ] } },
+{ "type": "Feature", "properties": { "Name": "Las Cuevas Research Station", "Ownership": "Public", "Type": null, "Management": "FCD", "Latitude": 16.733578, "Longitude": -88.985996 }, "geometry": { "type": "Point", "coordinates": [ -88.98599, 16.73358 ] } },
+{ "type": "Feature", "properties": { "Name": "Pinol Sands", "Ownership": "Public", "Type": null, "Management": "Forestry", "Latitude": 17.012093, "Longitude": -88.98311 }, "geometry": { "type": "Point", "coordinates": [ -88.9831, 17.01209 ] } },
+{ "type": "Feature", "properties": { "Name": "Rio on Pools", "Ownership": "Public", "Type": null, "Management": "Forestry", "Latitude": 16.987001, "Longitude": -88.977514 }, "geometry": { "type": "Point", "coordinates": [ -88.97751, 16.987 ] } },
+{ "type": "Feature", "properties": { "Name": "Rio-Frio Cave", "Ownership": "Public", "Type": null, "Management": "Forestry", "Latitude": 16.979604, "Longitude": -89.000121 }, "geometry": { "type": "Point", "coordinates": [ -89.00012, 16.9796 ] } },
+{ "type": "Feature", "properties": { "Name": "Thousand Foot Falls", "Ownership": "Public", "Type": null, "Management": "Forestry", "Latitude": 17.059574, "Longitude": -88.848385 }, "geometry": { "type": "Point", "coordinates": [ -88.84838, 17.05957 ] } }
+]
+}
