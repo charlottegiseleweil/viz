@@ -1,11 +1,5 @@
    
-   /*//Layer Checks
-   function dataDownloadCheck(){
-      dataDownCheck = document.getElementById("dataDownloadPanel");
-         if (dataDownCheck.className == "dataDownload"){
-            dataDownCheck.className="close";
-         }     
-   }
+   //Layer Checks
    function aboutPanelCheck(){
       aboutCheck = document.getElementById("AboutPanel");
       if (aboutCheck.className == "AboutPanel"){
@@ -52,15 +46,40 @@
       LULCPanelClose1();
       LULCPanelClose2();
       LULCPanelClose3();
+      w=document.getElementById("LULCScenarioButton");
+      w.className="button";
    }
+
+   
 
    function LULCPanelOpen(){
       aboutPanelCheck();
-      dataDownloadCheck();
          x =document.getElementById("LULCPanel1");
          x.className="LULCpanel";
          y =document.getElementById("LULCPanel2");
          y.className="LULCpanel";
          z =document.getElementById("LULCPanel3");
          z.className="LULCpanel";
-   }*/
+         w=document.getElementById("LULCScenarioButton");
+         w.className="buttonPressed";
+   }
+
+
+
+
+document.getElementById("LULCScenarioButton").addEventListener("click", function(){ 
+   x = document.getElementById("LULCPanel1");
+   if (x.className == "LULCpanel"){
+      LULCPanelClose(); 
+   }else{
+      LULCPanelOpen();
+   }
+});
+
+
+
+
+
+
+
+

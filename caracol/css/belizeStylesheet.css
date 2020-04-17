@@ -1,19 +1,16 @@
 h1, h2, h3, h4 {
-  color: lightblue;  /* first colorsheet : #F7B733*/
+  color: #E1AD01;  /* first colorsheet : #F7B733*/
+  font-weight: normal;
 }
 
 h2 {
 	margin: 1%;
 }
 
-h1,h2,h3,h4 {
-	font-weight: normal;
-}
 
 .panels {
 			background-color: #302e25; /* first colorsheet : #003366*/
 		}
-
 .layerTitle {
 			color: cadetblue; /* first colorsheet : #darkorange*/ 
 		} 
@@ -30,6 +27,25 @@ html *{
    			
    			font-family: Verdana !important;
 		}
+
+/* Scroll Bar Styling*/
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #E1AD01; 
+  border-radius: 10px;
+}
+
+
 
 
 		#mapid {
@@ -53,7 +69,7 @@ html *{
 			top: 2%;
 			right: 15px;
 			height: 88%;
-			opacity: 0.85;
+			opacity: 0.95;
 			border: 2px;
 			border-color: #F7B733;
 			z-index: 99;	
@@ -72,11 +88,18 @@ html *{
 
 		}
 
-		.layerTitle {
-			color: lightblue; /* first colorsheet : #darkorange*/ 
+		h4, .layerTitle {
+			color: #E34234; /* first colorsheet : #darkorange*/ 
 			font-size: 2.7vh;
 		} 
 
+		#miniMap {
+			position: absolute;
+			display: inline-block;
+			float: left;
+			left: 15px;
+			top: 8%;
+		}
 
 
 		.button {
@@ -86,6 +109,14 @@ html *{
 		    font-size: 2vh; 
 		}
 
+		.buttonPressed {
+			border-radius: 8px;
+		    margin: 1vh;
+		    display: inline;
+		    font-size: 2vh; 
+		    background-color: #E1AD01;
+		}
+
 
 
 		.LULCpanel {
@@ -93,12 +124,12 @@ html *{
 			display: inline-block;
 			float: right;
 			padding: 1.5%;
-			width: 100px;
+			width: 12%;
 			height: 500px;
 			color: #DFDCE3;
 			z-index: 99;
 			border-radius: 25px;
-			opacity: 0.85;
+			opacity: 0.95;
 			background-color: #302e25;
 
 		}
@@ -139,13 +170,21 @@ html *{
 			right: 35%;
 			position: absolute;
 			border-radius: 25px;
-			opacity: 0.85;
+			opacity: 0.95;
 			background-color: #302e25;
 
 		}
 
+
+		.dataLinkClose {
+			display: none;
+		}
+
 		.dataLink {
-			/*font-size: 1vh;*/
+			color: #DFDCE3;
+			font-size: 2vh;
+			color: #E1AD01 ;
+			display: inline-block;
 		}
 
 
@@ -180,7 +219,7 @@ html *{
 			left: 15px;
 			position: absolute;
 			border-radius: 25px;
-			opacity: 0.85;
+			opacity: 0.95;
 
 		}
 
@@ -198,26 +237,19 @@ html *{
 			z-index: 900;
 		}
 
-		
-
-		
-
-		.dataDownload {
-			display: inline-block;
-			float: right;
-			padding: 1.5%;
-			width: 30%;
-			height: 66.8%;
-			color: #DFDCE3;
-			z-index: 100;
-			opacity: 0.85;
-			top: 23.2%;
-			right: 35%;
-			position: absolute;
+		.image{
+			opacity: 1;
 			border-radius: 25px;
-			overflow: scroll;
-			background-color: #302e25;
+		}
 
+		.teamPicture{
+			border-radius: 50%;
+		}
+
+
+
+		.buttonOn {
+			color: #E34234;
 		}
 
 		.ILImage {
@@ -225,7 +257,17 @@ html *{
 			z-index: 500;
 			opacity: 1;
 		}
+		.leaflet-right .leaflet-control {
+    		float: left;
+    		left: 15px;
+		}
 
+		.leaflet-bottom {
+			position: none;
+		}
 
-
+		.teamDescriptor {
+			display: inline-block;
+			width: 30%;
+		}
 

@@ -1,11 +1,6 @@
    
-   /*//Layer Checks
-   function dataDownloadCheck(){
-      dataDownCheck = document.getElementById("dataDownloadPanel");
-         if (dataDownCheck.className == "dataDownload"){
-            dataDownCheck.className="close";
-         }     
-   }
+   //Layer Checks
+
    function aboutPanelCheck(){
       aboutCheck = document.getElementById("AboutPanel");
       if (aboutCheck.className == "AboutPanel"){
@@ -35,13 +30,26 @@
     function aboutPanelClose(){
       x = document.getElementById("AboutPanel");
       x.className="close";
+      y=document.getElementById("aboutPanelButton");
+      y.className="button";
    }
 
    function aboutPanelOpen(){
-      dataDownloadCheck();
          LULC1Check();
          LULC2Check();
          LULC3Check();
       x = document.getElementById("AboutPanel");
       x.className="AboutPanel";
-   }*/
+      y = document.getElementById("aboutPanelButton");
+      y.className="buttonPressed";
+   }
+
+document.getElementById("aboutPanelButton").addEventListener("click", function(){ 
+   x = document.getElementById("AboutPanel");
+   if (x.className == "AboutPanel"){
+      aboutPanelClose(); 
+   }else{
+      aboutPanelOpen();
+   }
+});
+
