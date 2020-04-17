@@ -20,6 +20,10 @@
       attribution: "Current Land Cover Map [PRO-Agua]"
     });
 
+    var LULC_MAP_Hoy_background = L.tileLayer(tileset_LULC_MAP_Hoy, {
+      attribution: "Current Land Cover Map [PRO-Agua]"
+    });
+
     var LULC_PEM_Sost = L.tileLayer(tileset_LULC_PEM_Sost, {
       attribution: "Co-desarollado Escenario Sostenible [PRO-Agua]"
     });
@@ -65,16 +69,16 @@
 // - - - - - - - - - - - 
 
     var tileset_Dengue_PEM_Sost = 
-      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Sost_Lluvio/{z}/{x}/{y}.png"
+      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Sost/{z}/{x}/{y}.png"
 
     var tileset_Dengue_PEM_Hoy =
-      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_2017/{z}/{x}/{y}.png";
+      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_pres/{z}/{x}/{y}.png";
 
     var tileset_Dengue_PEM_Peor =
-      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Peor_Lluvio/{z}/{x}/{y}.png";
+      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Peor/{z}/{x}/{y}.png";
     
     var tileset_Dengue_PEM_Real =
-      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Real_Lluvio/{z}/{x}/{y}.png";
+      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Real/{z}/{x}/{y}.png";
 
 
 
@@ -125,37 +129,21 @@
 // Shapefiles
 // - - - - - - -
 
-    // Add shapefile or area AOI de enfoque
-    var layers = []
-    map_styling();
-    ////// Shapefile layers -- make Styles in mapUtils.js/////
-    function shapefileLayer(shapefileName,style=shpStyle){
-        layers[shapefileName] = new L.Shapefile("data/shapefiles/"+shapefileName+".zip",{
-            style: style},{
-            onEachFeature: function(feature, layer) {}
-          });
-      }; 
-
-    // AOI
-    shapefileLayer("AOI_PEM");
-    layers["AOI_PEM"].addTo(map2);
-
-    // Rivers
-    shapefileLayer("corrientes",riverStyle);
-    layers["rivers"] = layers["corrientes"];
+  // Add shapefile or area AOI de enfoque
+  var layers = []
+  map_styling();
+  ////// Shapefile layers -- make Styles in mapUtils.js/////
+  function shapefileLayer(layerName, shapefileName=layerName,style=shpStyle){
+    layers[layerName] = new L.Shapefile("data/shapefiles/"+shapefileName+".zip",{
+        style: style},{
+        onEachFeature: function(feature, layer) {}
+        });
+  }; 
 
 
-
-
-
-/* JavaScript improvemt TODO 
-function removeLayers(layer,map) {
-    if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
-          ) {
-    map.removeLayer(layer)}
-   };
-*/
-
+  //AOI box
+  shapefileLayer("AOI_box_bl","AOI_PEM",AOIBaseStyle);
+  shapefileLayer("AOI_box","AOI_PEM",AOIBaseStyle);
 
 // - - - - - - - - - - - -
 // Functions to switch Maps
@@ -175,6 +163,8 @@ function updateMap1(mode) {
       lyr = LULC_MAP_Hoy;
       lyr.addTo(map1);
       labels.addTo(map1);
+      let aoi_lyr = layers["AOI_box_bl"];
+      aoi_lyr.addTo(map1);
   }
   else if (mode == "Dengue") {
     // Remove layers
@@ -189,6 +179,7 @@ function updateMap1(mode) {
     lyr = Dengue_PEM_Hoy;
     lyr.addTo(map1);
     labels.addTo(map1);
+    layers["AOI_box_bl"].addTo(map1);
 
   }
   else {
@@ -210,6 +201,7 @@ function updateMap2(mode,scenario) {
         }
       });
 
+
       // Pick layer to add (according to scenario)
       if (scenario == "Peor") {
         var lyr = LULC_PEM_Peor;
@@ -222,6 +214,9 @@ function updateMap2(mode,scenario) {
       // Add layers
       lyr.addTo(map2);
       labels2.addTo(map2);
+      
+      let aoi_lyr = layers["AOI_box"];
+      aoi_lyr.addTo(map2);
   }
   else if (mode == "Dengue") {
     // Remove layers
@@ -244,6 +239,7 @@ function updateMap2(mode,scenario) {
     // Add layers
     lyr.addTo(map2);
     labels2.addTo(map2);
+    layers["AOI_box"].addTo(map2);
 
   }
   else {

@@ -3,6 +3,10 @@ body {
   font-size: 14px;
 }
 
+h2 h1{
+  margin: 1px 0;
+}
+
 
 a {
   color: steelblue;
@@ -10,7 +14,7 @@ a {
 a:hover{
   text-decoration: underline;
   color:royalblue;
-  font-size:large;
+  cursor: pointer;
 }
 
 .navbarLink:hover{
@@ -27,7 +31,7 @@ a:hover{
 }
 
 .map {
-  height: 47vh;
+  height: 46vh;
 }
 
 .leyendaHover:hover #leyendaIntegral {
@@ -91,21 +95,21 @@ a:hover{
 
 #map1_text {
   display: flex;
-  position: fixed;
-  bottom: 47vh;
+  position: absolute;
+  bottom: 46.5vh;
   left: 52vw;
   z-index: 1000;
   color: white;
 
   font-size: 4vh;
   font-weight: bold;
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
 }
 
 #map2_text {
   display: flex;
-  position: fixed;
+  position: absolute;
   bottom: 4vh;
   left: 52vw;
   z-index: 1000;
@@ -126,6 +130,33 @@ a:hover{
   border-radius: 5px;
 }
 
+.mapControls_new {
+  z-index: 500;
+  padding: 1vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  
+}
+#mapTitle_new {
+  position: absolute;
+  top: 10px;
+  left: 28%;
+
+  z-index: 1000;
+  color: white;
+
+  font-size: 4vh;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#changeButton{
+  font-size: 2vh;
+  padding: 3px;
+  border: solid rgb(170, 221, 241) 1px;
+  color: rgb(170, 221, 241);
+}
+
 #mapTitle {
     position: absolute;
     top: 60px;
@@ -134,22 +165,38 @@ a:hover{
 
 #map2_controls {
   display: flex;
-  position: fixed;
+  position: absolute;
   font-size: 1.5vh;
-  bottom: 2vh;
+  bottom: 2.5vh;
   left: 52vw;
 }
 
+#map2_controls_yrs{
+  display: flex;
+  font-size: 1.5vh;
+  right: 3vw;
+  min-width: 30px;
+  max-width: 500px;
+  z-index: 1000;
+}
+#map2_legend_flood{
+  position: absolute;
+  top: 55vh;
+  right: 35%;
+  min-width: 30px;
+  max-width: 500px;
+  max-height: 1400px;
+}
+
 #map2_legend{
-     position: absolute;
-     bottom: 10px;
-     left: 10px;
-     /*padding-left: 20px;
-     padding-right: 20px;*/
-     min-width: 30px;
-     max-width: 500px;
-     max-height: 1400px;
-  }
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  min-width: 30px;
+  max-width: 500px;
+  max-height: 1400px;
+}
+
 
 #tabsPanel {
   border: 1px solid black;
@@ -176,7 +223,6 @@ a:hover{
   position: relative;
   height: 36vh;
   /*max-height: 320px;*/
-  overflow: auto;
 }
 
 #rightPanelPampa h4{

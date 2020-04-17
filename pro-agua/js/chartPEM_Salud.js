@@ -1,53 +1,51 @@
-var chart = c3.generate({
-    bindto: '#chartPEM_Salud',
-    data: {
-      x: 'x',
-      columns: [
-        ['x','Sostenible','Eco-turismo','Peor'],
-        
-        ['Área de hábitat del mosquito (ha)',-17251,-16701, 39358 ],
-        //['Área de hábitat del mosquito (ha) [Seco]', -32575,-32535, 14646],
+let chart = c3.generate({
+  bindto: '#chartPEM_Salud',
+  data: {
+    x: 'x',
+    columns: [
+      ['x','Sostenible','Eco-turismo','Peor'],
+      ['Área Riesgo disminuido',3,25,83],
+      ['Área Mayor riesgo',419,224,2652],
+      
+      ['Personas con mayor riesgo de dengue',8000,5000,80000],
+      
+    ],
+    axes: {
+      'Personas con mayor riesgo de dengue': 'y2',
+    },
 
-        ['Población en areas con Aedes',  97531 , 97459 ,101055],
-        //['Incremento % población en riesgo [Seco]', 4,4,6],
-        
-      ],
-      axes: {
-        //'Área de hábitat del mosquito (ha) [Seco]': 'y2',
-        'Área de hábitat del mosquito (ha)': 'y2'
-      },
-      type:'bar',
-      colors: {
-        //'Área de hábitat del mosquito (ha) [Seco]': '#c970cc',
-        'Área de hábitat del mosquito (ha)':'#c970cc',
-        'Población en areas con Aedes':'#f7b981',
-        //'Incremento % población en riesgo [Lluvioso]':'darkred'
-      },
+    type:'bar',
+    colors: {
+      'Área Mayor riesgo': '#ff0400',
+      'Área Riesgo disminuido':'#3caf3c',
+      'Personas con mayor riesgo de dengue':'#c28e5b',
     },
-    legend: {
-        position: 'inner-bottom'
+  },
+  legend: {
+      position: 'inner-bottom'
+  },
+  axis: {
+    x:{
+      type : 'category',
     },
-    axis: {
-      x:{
-        type : 'category',
-      },
-      y: {
-        max: 10000,
-        min: -10000,
-        label: { 
-          text: 'Población en riesgo',
-          position: 'outer-middle'
-        }
-      },
-      y2: {
-        show: true, 
-        max: 37000,
-        min: -37000,
-        label: { 
-          text: 'Área de hábitat (ha)' ,// (Mt Sedimentos)',
-          position: 'outer-middle' 
-        },
+    y: {
+      max: 2359,
+      min: 100,
+      label: { 
+        text: 'Área (km^2)',
+        position: 'outer-middle'
       }
+    },
+    y2: {
+      show: true, 
+      max: 79000,
+      min: 0,
+      label: { 
+        text: 'Personas' ,
+        position: 'outer-middle' 
+      },
     }
+  }
 });
+
 

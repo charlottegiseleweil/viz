@@ -161,6 +161,21 @@ function map_styling(){
     window.LUstyle = LUstyle;
 }; 
 
+//Flood colors
+function floodBaseStyle(feature) {
+    return {
+        fillColor: '#004de6',
+        weight: 1,opacity: .9,color: 'white',Array: '0',fillOpacity: .5,
+        };
+    }
+
+//AOI colors
+function AOIBaseStyle(feature) {
+    return {
+        weight: 5,opacity: 0.9,color: '#ff4d4d',Array: '0',fillOpacity: .0
+        };
+    }
+
 
 
 /*function mapLayers(){
