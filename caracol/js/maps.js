@@ -11,6 +11,12 @@ var baseMapTwo = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/servic
 	attribution: 'Tiles &copy; Esri '
 });
 
+var baseMapTwoLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd',
+	maxZoom: 19
+});
+
 
 //Mini Map
 		//mini map 1
@@ -23,6 +29,15 @@ var baseMapTwo = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/servic
 		var miniMap = new L.Control.MiniMap(osm1, { toggleDisplay: true, position:'topleft' });
 		//miniMap.addTo(mymap);
 
+		//mini map 2
+		var osmUrl2='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+		var osmAttrib2='Tiles &copy; Esri';
+		var osm = new L.TileLayer(osmUrl2, {minZoom: 5, maxZoom: 18, attribution: osmAttrib});
+
+
+		var osm2 = new L.TileLayer(osmUrl2, baseMapTwoLabels, {minZoom: 0, maxZoom: 13, attribution: osmAttrib2 });
+		var miniMap2 = new L.Control.MiniMap(osm2, { toggleDisplay: true, position:'topleft' });
+		//miniMap2.addTo(mymap);
 
 
 //Map and Satellite Toggle
@@ -38,6 +53,7 @@ $(document).ready(function(){
 document.getElementById("mapRadio").onclick = function(){
 	if (this.checked){
 		mymap.removeLayer(baseMapTwo);
+		mymap.removeLayer(baseMapTwoLabels);
 		baseMapOne.addTo(mymap);
 
 	}
@@ -46,7 +62,10 @@ document.getElementById("mapRadio").onclick = function(){
 document.getElementById("satelliteRadio").onclick = function(){
 	if (this.checked){
 		mymap.removeLayer(baseMapOne);
+		//mymap.removeLayer(minimap);
 		baseMapTwo.addTo(mymap);
+		baseMapTwoLabels.addTo(mymap);
+		//miniMap2.addTo(mymap);
 	}
 }
 

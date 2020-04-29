@@ -6,7 +6,6 @@
 	<title>SDP CMCC Belize</title>
 	
 	<!-- Leaflet & Mini Map Plugins -->
-
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js" type="text/javascript"></script>
 	<script src="js/lib/leaflet.draw.js"></script>
@@ -22,7 +21,7 @@
 
 	<!-- My CSS -->
 	<link rel="stylesheet" href="css/belizeStylesheet.css"/>
-
+    <link rel="stylesheet" href="css/w3template.css"/> 
 
    <!-- GeoJSON file plug-in -->
    <script type="text/javascript" src="js/lib/leaflet.ajax.min.js"></script>
@@ -31,11 +30,6 @@
   	<!--Leaflet Shp-->
    	<script src="js/lib/leaflet.shpfile.js"></script>
 	<script src="js/lib/shp.js"></script> 
-
-    <link rel="stylesheet" href="css/w3template.css"/> <!--WHY IS THIS ONE HERE? -->
-
-    <!--Functions-->
-    <script src = "js/dataDownloadControls.js"></script>
 
 
 	</head>
@@ -58,7 +52,7 @@
 	<!-- Buttons -->
 	<div id='buttonsRow'>
 		<button type= "button" class="button" id="LULCScenarioButton">
-			LULC Scenarios</button>
+			Scenarios</button>
 		<button type= "button" class="button" style="display: inline;" id="dataDownloadButton">
 			Data Download</button>
 		<button type= "button" class="button" style="display: inline;" id="aboutPanelButton">
@@ -67,13 +61,13 @@
 
 
 	<br>
-	<!--Layer Checks-->
+	<!--Layer Checkboxes and Data Download Links-->
 	<div><a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">Download all Data (XX GB)</a></div>
 	<div class="layerChecks" id="newRoad"><input type = "checkbox" id="newRoadCheckBox"> Improved Caracol Road <a class="dataLinkClose" href="https://drive.google.com/drive/u/1/folders/1V0FloPb6komF2otgE1WXzIzs2d2v3btT" target="_blank">download</a></div> 
 	<hr>
 	<div class="layerChecks layerTitle" id="allToursim"><!--<input type = "checkbox" id="allTourismCheckBox">--> Tourism <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
 	<div class="layerChecks" id="tourismArchKey"><input type = "checkbox" id="tourismArchKeyCheckBox"> Nature/Key Cultural Sites <a class="dataLinkClose" href="https://drive.google.com/drive/u/1/folders/1jUa8YvVNxXq0VrOufJfGgqdT3zF43eql" target="_blank">download</a></div>
-	<div class="layerChecks" id="tourismImpacted"><input type = "checkbox" id="tourismImpactedCheckBox"> Impacted Tourist Sites <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
+	<div class="layerChecks" id="tourismImpacted"><input type = "checkbox" id="tourismImpactedCheckBox"> Impacted Tourism Sites <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
 	<div class="layerChecks" id="tourismExpanded"><input type = "checkbox" id="tourismExpandedCheckBox"> Tourism Expansion <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
 	<br>
 	<div class="layerChecks layerTitle" id="allMining"><!--<input type = "checkbox" id="allMiningCheckBox">--> Mining <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
@@ -85,7 +79,7 @@
 	<div class="layerChecks" id="agExpansion"><input type = "checkbox" id="agExpansionCheckBox"> Agriculture Expansion <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
 	<br>
 	<div class="layerChecks layerTitle" id="allTimber"><!--<input type = "checkbox" id="allTimberCheckBox">--> Timber <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="timber"><input type = "checkbox" id="timberCheckBox"> Timber <a class="dataLinkClose" href="https://drive.google.com/drive/u/1/folders/11ZNFj_sFEQt0Ga2UZYNG32LCjFNn_XYs" target="_blank">download</a></div>
+	<div class="layerChecks" id="timber"><input type = "checkbox" id="timberCheckBox"> Timber Concessions<a class="dataLinkClose" href="https://drive.google.com/drive/u/1/folders/11ZNFj_sFEQt0Ga2UZYNG32LCjFNn_XYs" target="_blank">download</a></div>
 	<div class="layerChecks" id="timberExpansion"><input type = "checkbox" id="timberExpansionCheckBox"> Timber Expansion <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
 	<br>
 	<div class="layerChecks layerTitle" id="allEnergySites"><!--<input type = "checkbox" id="allEnergySitesCheckBox">--> Energy <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
@@ -99,14 +93,12 @@
 
 </div><!-- Close selection Panel  -->
 
-<!-- Data Download-->
-<script src = "js/dataDownloadControls.js"></script>
-
 
 <!-- Legend -->
 <div class="InteractiveLegend panels" id="interactiveLegend">
 
 <h2 id="InteractiveLegendTitle">Legend</h2>
+
 <!--Base Map -->
 <div class= "layerChecks" id="baseMapSelect">
 	<input type= "radio" name="basemap" id="mapRadio"> Map 
@@ -155,7 +147,7 @@
 <!-- JavaScript --> 
 <script src="js/maps.js"></script>
 
-<script src="js/dataDownloadControls.js"></script>
+<script src="js/dataDownloadControls.js"></script> <!--stops working if commented out-->
 
  <script src="js/layers.js"></script>
 <script src="js/LULCControls.js"></script>
