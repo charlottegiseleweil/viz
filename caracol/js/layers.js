@@ -147,6 +147,111 @@
 		"weight": 0.5,
 	}
 
+		var waterFlowsStyle1 = {
+		"color": "#f7fbff",
+		"fillOpacity":1,
+		"stroke": "#f7fbff",
+		"weight": 0.5,
+	}
+
+		var waterFlowsStyle2 = {
+		"color": "#d1e3f3",
+		"fillOpacity":1,
+		"stroke": "#d1e3f3",
+		"weight": 0.5,
+	}
+
+		var waterFlowsStyle3 = {
+		"color": "#9ac8e1",
+		"fillOpacity":1,
+		"stroke": "#9ac8e1",
+		"weight": 0.5,
+	}
+
+		var waterFlowsStyle4 = {
+		"color": "#529dcc",
+		"fillOpacity":1,
+		"stroke": "#529dcc",
+		"weight": 0.5,
+	}
+
+		var waterFlowsStyle5 = {
+		"color": "#1c6cb1",
+		"fillOpacity":1,
+		"stroke": "#1c6cb1",
+		"weight": 0.5,
+	}
+
+		var waterFlowsStyle6 = {
+		"color": "#08306b",
+		"fillOpacity":1,
+		"stroke": "#08306b",
+		"weight": 0.5,
+	}
+
+		var waterQualityStyle1 = {
+		"color": "#67000d",
+		"fillOpacity":1,
+		"stroke": "#67000d",
+		"weight": 0.5,
+	}
+
+		var waterQualityStyle2 = {
+		"color": "#c5161b",
+		"fillOpacity":1,
+		"stroke": "#c5161b",
+		"weight": 0.5,
+	}
+
+		var waterQualityStyle3 = {
+		"color": "#f44d37",
+		"fillOpacity":1,
+		"stroke": "#f44d37",
+		"weight": 0.5,
+	}
+
+		var waterQualityStyle4 = {
+		"color": "#fc8f6f",
+		"fillOpacity":1,
+		"stroke": "#fc8f6f",
+		"weight": 0.5,
+	}
+
+		var waterQualityStyle5 = {
+		"color": "#fdccb8",
+		"fillOpacity":1,
+		"stroke": "#fdccb8",
+		"weight": 0.5,
+	}
+
+		var waterQualityStyle6 = {
+		"color": "#fff5f0",
+		"fillOpacity":1,
+		"stroke": "#fff5f0",
+		"weight": 0.5,
+	}
+
+		var carbonStyle1 = {
+		"color": "#ffe0bb",
+		"fillOpacity":1,
+		"stroke": "#ffe0bb",
+		"weight": 0.5,
+	}
+
+		var carbonStyle2 = {
+		"color": "#b1895d",
+		"fillOpacity":1,
+		"stroke": "#b1895d",
+		"weight": 0.5,
+	}
+
+		var carbonStyle3 = {
+		"color": "#623200",
+		"fillOpacity":1,
+		"stroke": "#623200",
+		"weight": 0.5,
+	}
+
 //Icon Declarations 
 	var hotelLodgingIcon = L.icon({
     iconUrl: 'img/bed.png',
@@ -277,12 +382,12 @@ function openPhotoOnClick(feature, layer){
 //PopUp Content
 
 function popUpCulturalSites(feature, layer){
-	layer.bindPopup("<h6>Cultural Sites</h6>" + feature.properties.Attraction + "<br>" + "<img src='img/culturalSites.png' width='200'>" + "<br>" + "<h6>Click icon for more info</h6>");
+	layer.bindPopup("<h6>Cultural Sites</h6>" + feature.properties.Attraction + "<br>" + "<h6>Click icon for more info</h6>");
 	popUpOnMouseHover(feature, layer);
 	openPhotoOnClick(feature, layer);
 }
 function popUpNatureSites(feature, layer){
-	layer.bindPopup("<h6>Nature Sites</h6>" + feature.properties.Name + "<br>" + "<img src='img/natureSites.png' width='200' >" + "<br>" + "<h6>Click icon for more info</h6>");
+	layer.bindPopup("<h6>Nature Sites</h6>" + feature.properties.Name + "<br>" + "<h6>Click icon for more info</h6>");
 	popUpOnMouseHover(feature, layer);
 	openPhotoOnClick(feature, layer);
 }
@@ -291,7 +396,7 @@ function popUpCMCCCommunities(feature, layer){
 	popUpOnMouseHover(feature, layer);
 }
 function popUpHotelSites(feature, layer){
-	layer.bindPopup("<h6>Hotel/Lodging</h6>" + feature.properties.Name + "<br>" + "<img src='img/lodging.png' width='120'>");
+	layer.bindPopup("<h6>Hotel/Lodging</h6>" + feature.properties.Name + "<br>");
 	popUpOnMouseHover(feature, layer);
 }
 function popUpSolarEnergy(feature, layer){
@@ -457,8 +562,29 @@ mymap.getPane('road').style.pointerEvents = 'none';
 
 	var heatmapAllClasses = L.layerGroup([heatMapNull, heatmapClass1, heatmapClass2, heatmapClass3, heatmapClass4, heatmapClass5, heatmapClass6, heatmapClass7, heatmapClass8, heatmapClass9, heatmapClass10]);
 
+	var waterFlowClass1 = L.geoJSON.ajax("data/waterFlows/waterFlowsFinalClass1.geojson", {style: waterFlowsStyle1});
+	var waterFlowClass2 = L.geoJSON.ajax("data/waterFlows/waterFlowsFinalClass2.geojson", {style: waterFlowsStyle2});
+	var waterFlowClass3 = L.geoJSON.ajax("data/waterFlows/waterFlowsFinalClass3.geojson", {style: waterFlowsStyle3});
+	var waterFlowClass4 = L.geoJSON.ajax("data/waterFlows/waterFlowsFinalClass4.geojson", {style: waterFlowsStyle4});
+	var waterFlowClass5 = L.geoJSON.ajax("data/waterFlows/waterFlowsFinalClass5.geojson", {style: waterFlowsStyle5});
+	var waterFlowClass6 = L.geoJSON.ajax("data/waterFlows/waterFlowsFinalClass6.geojson", {style: waterFlowsStyle6});
 
+	var waterFlowsAllClasses = L.layerGroup([waterFlowClass1, waterFlowClass2, waterFlowClass3, waterFlowClass4, waterFlowClass5, waterFlowClass6]);
 
+	var waterQualityClass1 = L.geoJSON.ajax("data/waterQuality/waterQualityFinalClass1.geojson", {style: waterQualityStyle1});
+	var waterQualityClass2 = L.geoJSON.ajax("data/waterQuality/waterQualityFinalClass2.geojson", {style: waterQualityStyle2});
+	var waterQualityClass3 = L.geoJSON.ajax("data/waterQuality/waterQualityFinalClass3.geojson", {style: waterQualityStyle3});
+	var waterQualityClass4 = L.geoJSON.ajax("data/waterQuality/waterQualityFinalClass4.geojson", {style: waterQualityStyle4});
+	var waterQualityClass5 = L.geoJSON.ajax("data/waterQuality/waterQualityFinalClass5.geojson", {style: waterQualityStyle5});
+	var waterQualityClass6 = L.geoJSON.ajax("data/waterQuality/waterQualityFinalClass6.geojson", {style: waterQualityStyle6});
+
+	var waterQualityAllClasses = L.layerGroup([waterQualityClass1, waterQualityClass2, waterQualityClass3, waterQualityClass4, waterQualityClass5, waterQualityClass6]);
+
+	var carbonClass1 = L.geoJSON.ajax('data/carbonClasses/carbonFinalClass1.geojson', {style: carbonStyle1});
+	var carbonClass2 = L.geoJSON.ajax('data/carbonClasses/carbonFinalClass2.geojson', {style: carbonStyle2});
+	var carbonClass3 = L.geoJSON.ajax('data/carbonClasses/carbonFinalClass3.geojson', {style: carbonStyle3});
+
+	var carbonAllClasses = L.layerGroup([carbonClass1, carbonClass2, carbonClass3]);
 
 
 
@@ -572,24 +698,12 @@ document.getElementById("CMCCCommunitiesCheckBox").onclick = function(){
 	}
 
 
-	// miningExpansionIL = "miningExpansionIL"
-	// miningExpansionCheck = "miningExpansionCheckBox"
-	// document.getElementById("miningExpansionCheckBox").onclick = function(){
-	// 	layerLegendToggle(miningExpansion, miningExpansionIL, miningExpansionCheck);
-	// }			
-
-
 	currentAgricultureIL = "currentAgricultureIL"
 	currentAgricultureCheck = "currentAgricultureCheckBox"
 	document.getElementById("currentAgricultureCheckBox").onclick = function(){
 		layerLegendToggle(agZones, currentAgricultureIL, currentAgricultureCheck);
 	}	
-
-	// agExpansionIL = "agExpansionIL"
-	// agExpansionCheck = "agExpansionCheckBox"
-	// document.getElementById("agExpansionCheckBox").onclick = function(){
-	// 	layerLegendToggle(agExpansion, agExpansionIL, agExpansionCheck);
-	// }	
+	
 
 	heatmapIL = "heatmapIL"
 	heatmapCheck = "heatmapCheckBox"
@@ -604,12 +718,6 @@ document.getElementById("CMCCCommunitiesCheckBox").onclick = function(){
 		layerLegendToggle(timberConcessions, currentTimberIL, timberCheck);
 	}	
 
-	// timberExpansionIL = "timberExpansionIL"
-	// timberExpansionCheck = "timberExpansionCheckBox"
-	// document.getElementById("timberExpansionCheckBox").onclick = function(){
-	// 	layerLegendToggle(timberExpansion, timberExpansionIL, timberExpansionCheck);
-	// }	
-
 
 	energyIL = "energyIL"
 	energyCheck = "energyCheckBox"
@@ -622,24 +730,13 @@ document.getElementById("CMCCCommunitiesCheckBox").onclick = function(){
 	document.getElementById("energySitesCheckBox").onclick = function(){
 		layerLegendToggle(energySites, potentialEnergyIL, energySitesCheck);
 	}			
-
-	// watershedsIL = "watershedsIL"
-	// watershedsCheck = "watershedsCheckBox"
-	// document.getElementById("watershedsCheckBox").onclick = function(){
-	// 	layerLegendToggle(water, watershedsIL, watershedsCheck);
-	// }	
+	
 
 	CMCCAreasIL = "CMCCAreasIL"
 	CMCCAreasCheck = "CMCCAreasCheckBox"
 	document.getElementById("CMCCAreasCheckBox").onclick = function(){
 		layerLegendToggle(cmccGeographicZone, CMCCAreasIL, CMCCAreasCheck);
-	}
-
-	// CMCCCommunitiesIL = "CMCCCommunitiesIL"
-	// CMCCCommunitiesCheck = "CMCCCommunitiesCheckBox"
-	// document.getElementById("CMCCCommunitiesCheckBox").onclick = function(){
-	// 	layerLegendToggle(cmccCommunities, CMCCCommunitiesIL, CMCCCommunitiesCheck);
-	// }	
+	}	
 
 	roadsIL = "roadsIL"
 	roadsCheck = "roadsCheckBox"
@@ -647,19 +744,26 @@ document.getElementById("CMCCCommunitiesCheckBox").onclick = function(){
 		layerLegendToggle(allRoads, roadsIL, roadsCheck);
 	}	
 
-//Function starting with alert
 
-document.getElementById("waterflowCheckBox").onclick = function(){
-	alert("This checkbox is preliminary. Please contact Adrian Vogl, Project Lead (avogl@stanford.edu), for access to the data used in this study.")
-}
+	waterFlowIL = "waterFlowIL"
+	waterFlowCheck = "waterflowCheckBox"
+	document.getElementById("waterflowCheckBox").onclick = function(){
+		layerLegendToggle(waterFlowsAllClasses, waterFlowIL, waterFlowCheck);
+	}
 
-document.getElementById("waterQualityCheckBox").onclick = function(){
-	alert("This checkbox is preliminary. Please contact Adrian Vogl, Project Lead (avogl@stanford.edu), for access to the data used in this study.")
-}
 
-document.getElementById("carbonStorageCheckBox").onclick = function(){
-	alert("This checkbox is preliminary. Please contact Adrian Vogl, Project Lead (avogl@stanford.edu), for access to the data used in this study.")
-}
+	waterQualityIL = "waterQualityIL"
+	waterQualityCheck = "waterQualityCheckBox"
+	document.getElementById("waterQualityCheckBox").onclick = function(){
+		layerLegendToggle(waterQualityAllClasses, waterQualityIL, waterQualityCheck);
+	}	
+
+
+	carbonStorageIL = "carbonStorageIL"
+	carbonStorageCheck = "carbonStorageCheckBox"
+	document.getElementById("carbonStorageCheckBox").onclick = function(){
+		layerLegendToggle(carbonAllClasses, carbonStorageIL, carbonStorageCheck);
+	}
 
 
 //Icon setups 
