@@ -486,9 +486,10 @@ mymap.getPane('road').style.pointerEvents = 'none';
 
 	var water = L.layerGroup([waterWays, waterBody, majorRivers]);
 
-	var hotelLodging = L.geoJSON.ajax("data/tourismData/hotelsSitesTourism.geojson", {
+	var hotelLodging = L.geoJSON.ajax("data/hotelResorts.geojson", {
 		pointToLayer: function (json, latlng, iconName) {return returnIconMarker(json, latlng, hotelLodgingIcon)}, 
 		onEachFeature:popUpHotelSites}).on('click', hotelLinkClick);
+
 	var tourismSites = L.geoJSON.ajax("data/tourismData/tourismSitesInfo.geojson", {
 		pointToLayer: function (json, latlng, iconName) {return returnIconMarker(json, latlng, tourismSitesIcon)}, 
 		onEachFeature: popUpNatureSites});
@@ -496,7 +497,7 @@ mymap.getPane('road').style.pointerEvents = 'none';
 		pointToLayer: function (json, latlng, iconName) {return returnIconMarker(json, latlng, culturalSitesIcon)}, 
 		onEachFeature: popUpCulturalSites}); 
 
-	var allTourism = L.layerGroup([hotelLodging, tourismSites, culturalSites]);
+	var allTourism = L.layerGroup([tourismSites, culturalSites]);
 
 	var tourismExpanded = L.geoJSON.ajax("data/belizeExpansionLayers/tourismExpansionLayer.geojson", {style: tourismExpansionStyle});
 
@@ -703,6 +704,12 @@ document.getElementById("CMCCCommunitiesCheckBox").onclick = function(){
 	document.getElementById("currentAgricultureCheckBox").onclick = function(){
 		layerLegendToggle(agZones, currentAgricultureIL, currentAgricultureCheck);
 	}	
+
+	hotelResortIL = "hotelResortIL"
+	hotelResortCheck = "hotelLodgingCheckBox"
+	document.getElementById("hotelLodgingCheckBox").onclick = function(){
+		layerLegendToggle(hotelLodging, hotelResortIL, hotelResortCheck);
+	}
 	
 
 	heatmapIL = "heatmapIL"
@@ -745,25 +752,60 @@ document.getElementById("CMCCCommunitiesCheckBox").onclick = function(){
 	}	
 
 
+	//Variable declaractions for functions below
+	waterQualityIL = "waterQualityIL"
+	carbonStorageIL = "carbonStorageIL"
+
+
 	waterFlowIL = "waterFlowIL"
 	waterFlowCheck = "waterflowCheckBox"
+	var checkbox1 = document.getElementById("waterflowCheckBox");
 	document.getElementById("waterflowCheckBox").onclick = function(){
-		layerLegendToggle(waterFlowsAllClasses, waterFlowIL, waterFlowCheck);
+		if (checkbox1.checked == true){
+			toggleOff(waterQualityAllClasses, waterQualityIL);
+			toggleOff(carbonAllClasses, carbonStorageIL);
+			toggleOn(waterFlowsAllClasses, waterFlowIL);
+			document.getElementById("waterQualityCheckBox").checked = false;
+			document.getElementById("carbonStorageCheckBox").checked = false;
+		}
+		else{
+			toggleOff(waterFlowsAllClasses, waterFlowIL);
+		}
 	}
 
 
 	waterQualityIL = "waterQualityIL"
 	waterQualityCheck = "waterQualityCheckBox"
+	var checkbox2 = document.getElementById("waterQualityCheckBox");
 	document.getElementById("waterQualityCheckBox").onclick = function(){
-		layerLegendToggle(waterQualityAllClasses, waterQualityIL, waterQualityCheck);
+		if (checkbox2.checked == true){
+			toggleOff(waterFlowsAllClasses, waterFlowIL);
+			toggleOff(carbonAllClasses, carbonStorageIL);
+			toggleOn(waterQualityAllClasses, waterQualityIL);
+			document.getElementById("waterflowCheckBox").checked = false;
+			document.getElementById("carbonStorageCheckBox").checked = false;
+		}
+		else{
+			toggleOff(waterQualityAllClasses, waterQualityIL);
+		}
 	}	
 
 
 	carbonStorageIL = "carbonStorageIL"
 	carbonStorageCheck = "carbonStorageCheckBox"
+	var checkbox3 = document.getElementById("carbonStorageCheckBox");
 	document.getElementById("carbonStorageCheckBox").onclick = function(){
-		layerLegendToggle(carbonAllClasses, carbonStorageIL, carbonStorageCheck);
-	}
+		if (checkbox3.checked == true){
+			toggleOff(waterFlowsAllClasses, waterFlowIL);
+			toggleOff(waterQualityAllClasses, waterQualityIL);
+			toggleOn(carbonAllClasses, carbonStorageIL);
+			document.getElementById("waterflowCheckBox").checked = false;
+			document.getElementById("waterQualityCheckBox").checked = false;
+		}
+		else{
+			toggleOff(carbonAllClasses, carbonStorageIL);
+		}
+	}	
 
 
 //Icon setups 

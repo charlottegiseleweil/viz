@@ -53,7 +53,7 @@
 	<div id='buttonsRow'>
 		<button type= "button" class="button closeBorder" id="LULCScenarioButton">
 			Scenarios</button>
-		<button type= "button" class="button closeBorder" style="display: inline;" id="dataDownloadButton" onclick="dataDownloadAlert()">
+		<button type= "button" class="button closeBorder" style="display: inline;" id="dataDownloadButton">
 			Data Download</button>
 		<button type= "button" class="button closeBorder" style="display: inline;" id="aboutPanelButton">
 			About</button>
@@ -62,31 +62,37 @@
 
 	<br>
 	<!--Layer Checkboxes and Data Download Links-->
-	<div><a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">Download all Data (XX GB)</a></div>
-	<div class="layerChecks" id="newRoad"><input type = "checkbox" id="newRoadCheckBox"><b> Improved Caracol Road</b><a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div> 
-	<div class="layerChecks" id="CMCCCommunities"><input type = "checkbox" id="CMCCCommunitiesCheckBox"> CMCC Communities <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="watersheds"><input type = "checkbox" id="watershedsCheckBox"> Waterways <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="CMCCAreas"><input type = "checkbox" id="CMCCAreasCheckBox"> Protected Areas <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="Roads"><input type = "checkbox" id="roadsCheckBox"> Roads <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="tourismArchKey"><input type = "checkbox" id="tourismArchKeyCheckBox"> Natural & Cultural Sites <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
+	<div><a class="dataLinkClose" href="https://drive.google.com/drive/folders/1PQ_kx2aS3zHSLpcjkmxq6OLNitKgsQPN" id="allDataDownload" target="_blank"> Download all Data </a></div>
+	<div class="layerChecks" id="newRoad"><input type = "checkbox" id="newRoadCheckBox"><b> Improved Caracol Road  </b><a class="dataLinkClose" href="https://drive.google.com/file/d/1Oz184Vvsxv_2-pHPiof6dIvRW7Vn5_1s/view" target="_blank">  download</a></div> 
+	<div class="layerChecks" id="CMCCCommunities"><input type = "checkbox" id="CMCCCommunitiesCheckBox"> CMCC Communities <a class="dataLinkClose" href="https://drive.google.com/file/d/1zF_AgOAO6xVEH-0tQYDyy7sh5h5fcMrP/view?usp=sharing" target="_blank"> download</a></div>
+	<div class="layerChecks" id="watersheds"><input type = "checkbox" id="watershedsCheckBox"> Waterways <a class="dataLinkClose" href="https://drive.google.com/file/d/1rtmFK1iMqntzRj3pXvpggB8Gpg5jIs_M/view?usp=sharing" target="_blank"> download</a></div>
+	<div class="layerChecks" id="CMCCAreas"><input type = "checkbox" id="CMCCAreasCheckBox"> Protected Areas <a class="dataLinkClose" href="https://drive.google.com/file/d/1gVqUt-YqC8xwK4uVnaDOTh7FKT4nedod/view?usp=sharing" target="_blank"> download</a></div>
+	<div class="layerChecks" id="Roads"><input type = "checkbox" id="roadsCheckBox"> Roads <a class="dataLinkClose" href="https://drive.google.com/file/d/1Qc4mFB_7cXng83i8Oya3-wc7fGaAJ6OD/view?usp=sharing" target="_blank"> download</a></div>
+	<div class="layerChecks" id="tourismArchKey"><input type = "checkbox" id="tourismArchKeyCheckBox"> Natural & Cultural Sites <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank"> download</a></div>
 
 	<hr>
-	<div class="layerChecks layerTitle" id="allToursim"><!--<input type = "checkbox" id="allTourismCheckBox">--> Economic Activities <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="tourismExpanded"><input type = "checkbox" id="tourismExpandedCheckBox"> Tourism Impact Scores <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="mining"><input type = "checkbox" id="miningCheckBox"> Current Mining Areas <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="currentAgriculture"><input type = "checkbox" id="currentAgricultureCheckBox"> Current Agriculture Areas <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	
-	<div class="layerChecks" id="timber"><input type = "checkbox" id="timberCheckBox"> Timber Concessions<a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
+	<!--Economic Activities -->
+	<div class="layerChecks layerTitle" id="allToursim"> Economic Activities </div>
+	<div class="layerChecks" id="mining"><input type = "checkbox" id="miningCheckBox"> Current Mining Areas <a class="dataLinkClose" href="https://drive.google.com/file/d/1iZz7-Q4JbuWMSZcId9FNVC39khuZWNhU/view?usp=sharing" target="_blank"> download</a></div>
+	<div class="layerChecks" id="currentAgriculture"><input type = "checkbox" id="currentAgricultureCheckBox"> Current Agriculture Areas <a class="dataLinkClose" href="https://drive.google.com/file/d/1PcXY9XRj58dnOmB4sfcYtCPl1hBZf_9T/view?usp=sharing" target="_blank"> download</a></div>
+	<div class="layerChecks" id="timber"><input type = "checkbox" id="timberCheckBox"> Timber Concessions <a class="dataLinkClose" href="https://drive.google.com/file/d/1SGX6uAcox2ydOjdlYxaXi6k6SJtEALjs/view?usp=sharing" target="_blank">   download</a></div>
+	<div class="layerChecks" id="hotelLodging"><input type = "checkbox" id="hotelLodgingCheckBox"> Tourism Lodging <a class="dataLinkClose" href="https://drive.google.com/file/d/1U_iePO5JiWPEaxoCWG7jla20mAYh0dRg/view?usp=sharing" target="_blank">  download</a></div>
 	<br>
-	<div class="layerChecks layerTitle" id="allMining"><!--<input type = "checkbox" id="allMiningCheckBox">--> Ecosystem Services <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="impactHeatmap"><input type = "checkbox" id="heatmapCheckBox"> <b>Impact: Benefits Impaired</b><a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="impactHeatmap"><input type = "checkbox" id="waterflowCheckBox"> Total Water Flow<a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="impactHeatmap"><input type = "checkbox" id="waterQualityCheckBox"> Water Quality Index<a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="impactHeatmap"><input type = "checkbox" id="carbonStorageCheckBox"> Carbon Storage<a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
+	<!-- Ecosystem Services -->
+	<div class="layerChecks layerTitle" id="allMining"> Ecosystem Services </div>
+	<div class="layerChecks" id="impactHeatmap"><input type = "checkbox" id="waterflowCheckBox"> Total Water Flow <a class="dataLinkClose" href="https://drive.google.com/file/d/19W5e26ha553kmJNur4DIz8X9k3kFPZ8T/view?usp=sharing" target="_blank">   download</a></div>
+	<div class="layerChecks" id="impactHeatmap"><input type = "checkbox" id="waterQualityCheckBox"> Water Quality Index <a class="dataLinkClose" href="https://drive.google.com/file/d/1R5mcwVg4qqGdJS6JtLzTXWIjHCHBJlz5/view?usp=sharing" target="_blank">   download</a></div>
+	<div class="layerChecks" id="impactHeatmap"><input type = "checkbox" id="carbonStorageCheckBox"> Carbon Storage <a class="dataLinkClose" href="https://drive.google.com/file/d/1Esuhr6QMac3p2cVE-7TGVRNVDuIk62s4/view?usp=sharing" target="_blank">   download</a></div>
 	<br>
-	<div class="layerChecks layerTitle" id="allEnergySites"><!--<input type = "checkbox" id="allEnergySitesCheckBox">--> Energy <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="energy"><input type = "checkbox" id="energyCheckBox"> Dams <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
-	<div class="layerChecks" id="energySites"><input type = "checkbox" id="energySitesCheckBox"> Potential Sites for Renewable Energy <a class="dataLinkClose" href="https://docs.google.com/document/d/19cuUkXI-JI_9XogK8MqClx1oF2X5yANsAfa13NnzmHo/edit" target="_blank">download</a></div>
+	<!-- Future Development Impact-->
+	<div class="layerChecks layerTitle" id="allMining"> Future Development </div>
+	<div class="layerChecks" id="tourismExpanded"><input type = "checkbox" id="tourismExpandedCheckBox"> Tourism Impact Scores <a class="dataLinkClose" href="https://drive.google.com/file/d/1G6t3Jt0hi-ZMwGzWAY3HliodMUMw5klO/view?usp=sharing" target="_blank"> download</a></div>
+	<div class="layerChecks" id="impactHeatmap"><input type = "checkbox" id="heatmapCheckBox"> <b>Impact: Benefits Impaired </b><a class="dataLinkClose" href="https://drive.google.com/file/d/1BHDgK7LPF0uRbf_PultMoiwA9fuQyA-f/view?usp=sharing" target="_blank"> download</a></div>
+	<br>
+	<!-- Energy -->
+	<div class="layerChecks layerTitle" id="allEnergySites"><!--<input type = "checkbox" id="allEnergySitesCheckBox">--> Energy </div>
+	<div class="layerChecks" id="energy"><input type = "checkbox" id="energyCheckBox"> Dams <a class="dataLinkClose" href="https://drive.google.com/file/d/1fgkIUQSdc-Z2TO00OsaHkio23-I3WkJe/view?usp=sharing" target="_blank"> download</a></div>
+	<div class="layerChecks" id="energySites"><input type = "checkbox" id="energySitesCheckBox"> Potential Sites for Renewable Energy <a class="dataLinkClose" href="https://drive.google.com/file/d/1z4F9Jac8PT7ZyJZyEv1KGN3V6ZnvWUp0/view?usp=sharing" target="_blank"> download</a></div>
 
 </div><!-- Close selection Panel  -->
 
@@ -126,11 +132,11 @@
 
 <!-- LULC Panel  -->
 <div class= "LULCclose panels" id= "LULCPanel3"> <button type= "button" class= "exitButton" onclick="LULCPanelClose()">X</button><h3>Scenario Comparisons</h3>
+<button type= "button" class="button" id= "downloadFigureButton" onclick="downladFigure()"> Enlarge</button>
 <br>
-	<img src="scripts/currentStaticFigure.png" id= "staticFigure" width= 100%>
+	<img src="scripts/staticFigureBelize.png" id= "staticFigure" width= 100%>
 <br>
 <button type= "button" class="close" id= "expandFigureButton" onclick="expandFigureOpen()">Click to Expand Figure</button>
-<button type= "button" class="button" id= "downloadFigureButton" onclick="downladFigure()"><img src="img/expand.png" width="30"></button>
 	<div>
 		<h4>About this Figure</h4>
 		The first two maps represent a palette of options for future development. The "more conservative" options allow for an increase in tourism, selective site development, improved agricultural practices and continued sustainable timber, with a focus on minimal expansion into natural areas, and minimal impact on natural resources. 
@@ -142,7 +148,7 @@
 </div>
 
 <div class= "LULCclose panels" id= "LULCPanel2"><!--<h3>Expansion Scenarios Draft</h3> --><button type= "button" class= "exitButton" onclick="LULCPanelClose2()">X</button>
-	<img src="scripts/currentStaticFigure.png" width= 100%>
+	<img src="scripts/staticFigureBelize.png" width= 100%>
 </div>
 <div class= "LULCclose panels" id= "LULCPanel1"><h3>Case 1</h3> <!--<button type= "button" class= "exitButton" onclick="LULCPanelClose1()">X</button>-->
 	<img src="img/placeholdersmall.png" height="100" width="100">

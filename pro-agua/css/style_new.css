@@ -125,6 +125,7 @@ a:hover{
   color: black;
   border: 1px solid black;
   border-radius: 5px;
+  width: 31vh;
 }
 
 .mapControls{
@@ -148,6 +149,16 @@ a:hover{
   z-index: 1000;
   font-size: 2vh;
   height: 44px;
+  padding-left: 9px;
+  margin-bottom: 3px;
+}
+
+#controlCity{
+  color: rgba(0, 0, 0, 0.6);
+  top: 10vh;
+  right: 1vw;
+  z-index: 1000;
+  font-size: 2vh;
   padding-left: 9px;
   margin-bottom: 3px;
 }
@@ -358,6 +369,11 @@ a:hover{
 .chart {
   position: relative;
   height: 32vh;
+}
+#chartTAH1, #chartTAH, #chartPEM1, #chartPEM{
+
+  height: 20vh;
+  width: 60vh;
 }
 
 #rightPanelPampa h4{
