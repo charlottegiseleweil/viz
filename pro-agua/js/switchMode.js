@@ -27,7 +27,6 @@ let scenario = 'Sost';    // Default scenario (SOST) -- actually embedded in Upd
    function switchMode(notLUmode){
 
     mode = ((modeIsLU==true) ? 'LU' : notLUmode);
-    console.log("Mode is "+mode)
 
     // Update Maps
     updateMap1(mode)
