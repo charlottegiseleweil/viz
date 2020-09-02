@@ -1,9 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "culturalSitesTourism",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Caracol", "Ownership": "Public", "photosphereLink": "https:\/\/www.google.com\/maps\/@16.7637377,-89.1176941,3a,75y,203.08h,66.37t\/data=!3m8!1e1!3m6!1sAF1QipPq4mwZeEaIW0rxvvwlBSMtNDDpl6d4ZbReSSLI!2e10!3e11!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipPq4mwZeEaIW0rxvvwlBSMtNDDpl6d4ZbReSSLI%3Dw203-h100-k-no-pi-0-ya133.26988-ro-0-fo100!7i5120!8i2560" }, "geometry": { "type": "Point", "coordinates": [ -89.11781, 16.76308 ] } },
-{ "type": "Feature", "properties": { "Name": "Nohoch Che'en", "Ownership": "Public", "photosphereLink": "https:\/\/www.google.com\/maps\/@17.2077741,-88.6498883,3a,75y,327.04h,102.19t\/data=!3m8!1e1!3m6!1sAF1QipOsCFRobZIIYCrs5MfI8QXvJxSN1WL-sv3oMbN2!2e10!3e11!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipOsCFRobZIIYCrs5MfI8QXvJxSN1WL-sv3oMbN2%3Dw203-h100-k-no-pi-0-ya47.571556-ro-0-fo100!7i8704!8i4352" }, "geometry": { "type": "Point", "coordinates": [ -89.09588, 16.61326 ] } }
-]
-}
